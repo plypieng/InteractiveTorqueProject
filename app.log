@@ -1,0 +1,190 @@
+2024-09-21 10:27:21,237 INFO:Dash is running on http://0.0.0.0:8050/
+
+2024-09-21 10:27:21,258 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8050
+ * Running on http://172.22.250.58:8050
+2024-09-21 10:27:21,258 INFO:[33mPress CTRL+C to quit[0m
+2024-09-21 10:27:50,509 INFO:127.0.0.1 - - [21/Sep/2024 10:27:50] "GET /_reload-hash HTTP/1.1" 200 -
+2024-09-21 10:27:50,535 INFO:127.0.0.1 - - [21/Sep/2024 10:27:50] "GET /_dash-layout HTTP/1.1" 200 -
+2024-09-21 10:27:50,535 INFO:127.0.0.1 - - [21/Sep/2024 10:27:50] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-09-21 10:27:50,602 INFO:127.0.0.1 - - [21/Sep/2024 10:27:50] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:27:50,607 INFO:127.0.0.1 - - [21/Sep/2024 10:27:50] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 204 -
+2024-09-21 10:27:50,612 INFO:127.0.0.1 - - [21/Sep/2024 10:27:50] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:27:53,356 INFO:127.0.0.1 - - [21/Sep/2024 10:27:53] "GET /_reload-hash HTTP/1.1" 200 -
+2024-09-21 10:28:10,358 INFO:Dash is running on http://0.0.0.0:8050/
+
+2024-09-21 10:28:44,652 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-09-21 10:29:19,811 ERROR:Error loading data from W:/20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-09-21 10:37:15,208 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_reload-hash HTTP/1.1" 200 -
+2024-09-21 10:37:15,214 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_reload-hash HTTP/1.1" 200 -
+2024-09-21 10:37:15,218 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_reload-hash HTTP/1.1" 200 -
+2024-09-21 10:37:15,226 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET / HTTP/1.1" 200 -
+2024-09-21 10:37:15,230 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-layout HTTP/1.1" 200 -
+2024-09-21 10:37:15,233 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-09-21 10:37:15,275 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "[36mGET /assets/custom.css?m=1726881770.0517588 HTTP/1.1[0m" 304 -
+2024-09-21 10:37:15,291 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-component-suites/dash/deps/react@16.v2_18_1m1726879215.14.0.min.js HTTP/1.1" 200 -
+2024-09-21 10:37:15,293 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-component-suites/dash/deps/prop-types@15.v2_18_1m1726879215.8.1.min.js HTTP/1.1" 200 -
+2024-09-21 10:37:15,293 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-component-suites/dash/deps/react-dom@16.v2_18_1m1726879215.14.0.min.js HTTP/1.1" 200 -
+2024-09-21 10:37:15,293 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-component-suites/dash/dash-renderer/build/dash_renderer.v2_18_1m1726879215.min.js HTTP/1.1" 200 -
+2024-09-21 10:37:15,457 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-layout HTTP/1.1" 200 -
+2024-09-21 10:37:15,459 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-09-21 10:37:15,528 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-09-21 10:37:15,539 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-09-21 10:37:15,545 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "[36mGET /_dash-component-suites/dash/dcc/async-slider.js HTTP/1.1[0m" 304 -
+2024-09-21 10:37:15,553 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-09-21 10:37:15,560 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:37:15,566 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:37:15,569 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:37:15,572 INFO:127.0.0.1 - - [21/Sep/2024 10:37:15] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-09-21 10:37:18,219 ERROR:Error loading data from W:/20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-09-21 10:37:18,270 INFO:127.0.0.1 - - [21/Sep/2024 10:37:18] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:37:22,820 INFO:127.0.0.1 - - [21/Sep/2024 10:37:22] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:37:26,912 INFO:127.0.0.1 - - [21/Sep/2024 10:37:26] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:39:25,094 ERROR:Exception on /download/pdf [GET]
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\app.py", line 291, in download_pdf
+    return send_file(file_path,
+           ^^^^^^^^^^^^^^^^^^^^
+TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
+2024-09-21 10:39:25,097 INFO:127.0.0.1 - - [21/Sep/2024 10:39:25] "[35m[1mGET /download/pdf?filepath=W:/20240920160056_1505_XXX0000_20rpm.pdf&cutoff=0.1 HTTP/1.1[0m" 500 -
+2024-09-21 10:39:25,305 INFO:127.0.0.1 - - [21/Sep/2024 10:39:25] "GET /favicon.ico HTTP/1.1" 200 -
+2024-09-21 10:39:37,506 ERROR:Exception on /download/csv [GET]
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\app.py", line 273, in download_csv
+    return send_file(file_path,
+           ^^^^^^^^^^^^^^^^^^^^
+TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
+2024-09-21 10:39:37,506 INFO:127.0.0.1 - - [21/Sep/2024 10:39:37] "[35m[1mGET /download/csv?filepath=W:/20240920160056_1505_XXX0000_20rpm.csv HTTP/1.1[0m" 500 -
+2024-09-21 10:39:37,653 INFO:127.0.0.1 - - [21/Sep/2024 10:39:37] "GET /favicon.ico HTTP/1.1" 200 -
+2024-09-21 10:40:10,101 ERROR:Exception on /download/csv [GET]
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\app.py", line 273, in download_csv
+    return send_file(file_path,
+           ^^^^^^^^^^^^^^^^^^^^
+TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
+2024-09-21 10:40:10,102 INFO:127.0.0.1 - - [21/Sep/2024 10:40:10] "[35m[1mGET /download/csv?filepath=W:/20240920160056_1505_XXX0000_20rpm.csv HTTP/1.1[0m" 500 -
+2024-09-21 10:40:10,259 INFO:127.0.0.1 - - [21/Sep/2024 10:40:10] "GET /favicon.ico HTTP/1.1" 200 -
+2024-09-21 10:45:35,702 INFO:127.0.0.1 - - [21/Sep/2024 10:45:35] "GET / HTTP/1.1" 200 -
+2024-09-21 10:45:35,754 INFO:127.0.0.1 - - [21/Sep/2024 10:45:35] "[36mGET /assets/custom.css?m=1726881770.0517588 HTTP/1.1[0m" 304 -
+2024-09-21 10:45:35,964 INFO:127.0.0.1 - - [21/Sep/2024 10:45:35] "GET /_dash-layout HTTP/1.1" 200 -
+2024-09-21 10:45:35,966 INFO:127.0.0.1 - - [21/Sep/2024 10:45:35] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-09-21 10:45:36,065 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-09-21 10:45:36,073 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "[36mGET /_dash-component-suites/dash/dcc/async-slider.js HTTP/1.1[0m" 304 -
+2024-09-21 10:45:36,079 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-09-21 10:45:36,088 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-09-21 10:45:36,090 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:45:36,098 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:45:36,100 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:45:36,121 INFO:127.0.0.1 - - [21/Sep/2024 10:45:36] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-09-21 10:45:39,522 INFO:127.0.0.1 - - [21/Sep/2024 10:45:39] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:45:41,250 ERROR:Exception on /download/csv [GET]
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\app.py", line 273, in download_csv
+    # Decode URL-encoded file path
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
+2024-09-21 10:45:41,252 INFO:127.0.0.1 - - [21/Sep/2024 10:45:41] "[35m[1mGET /download/csv?filepath=W:/20240920164155_1505_XXX0000_20rpm.csv HTTP/1.1[0m" 500 -
+2024-09-21 10:45:41,402 INFO:127.0.0.1 - - [21/Sep/2024 10:45:41] "GET /favicon.ico HTTP/1.1" 200 -
+2024-09-21 10:45:46,657 ERROR:Exception on /download/pdf [GET]
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\app.py", line 291, in download_pdf
+    # Route to download PDF files
+               ^^^^^^^^^^^^^^^^^^
+TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
+2024-09-21 10:45:46,659 INFO:127.0.0.1 - - [21/Sep/2024 10:45:46] "[35m[1mGET /download/pdf?filepath=W:/20240920164155_1505_XXX0000_20rpm.pdf&cutoff=0.1 HTTP/1.1[0m" 500 -
+2024-09-21 10:45:46,788 INFO:127.0.0.1 - - [21/Sep/2024 10:45:46] "GET /favicon.ico HTTP/1.1" 200 -
+2024-09-21 10:48:18,281 INFO:Dash is running on http://0.0.0.0:8050/
+
+2024-09-21 10:48:18,315 INFO:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8050
+ * Running on http://172.22.250.58:8050
+2024-09-21 10:48:18,315 INFO:[33mPress CTRL+C to quit[0m
+2024-09-21 10:48:26,254 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "GET / HTTP/1.1" 200 -
+2024-09-21 10:48:26,372 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "[36mGET /assets/custom.css?m=1726881770.0517588 HTTP/1.1[0m" 304 -
+2024-09-21 10:48:26,458 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "GET /_dash-layout HTTP/1.1" 200 -
+2024-09-21 10:48:26,461 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-09-21 10:48:26,494 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-09-21 10:48:26,497 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "[36mGET /_dash-component-suites/dash/dcc/async-slider.js HTTP/1.1[0m" 304 -
+2024-09-21 10:48:26,501 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:48:26,506 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:48:26,510 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:48:26,512 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-09-21 10:48:26,515 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-09-21 10:48:26,526 INFO:127.0.0.1 - - [21/Sep/2024 10:48:26] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-09-21 10:48:30,557 WARNING:Attempt to access invalid file path: W:/20240920160056_1505_XXX0000_20rpm.csv
+2024-09-21 10:48:30,616 INFO:127.0.0.1 - - [21/Sep/2024 10:48:30] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:48:32,589 WARNING:Attempt to access invalid file path: W:/20221108190911_1505_XXX0001_20rpm.csv
+2024-09-21 10:48:32,592 INFO:127.0.0.1 - - [21/Sep/2024 10:48:32] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:48:33,478 WARNING:Attempt to access invalid file path: W:/20240920163029_1505_XXX0000_20rpm.csv
+2024-09-21 10:48:33,482 INFO:127.0.0.1 - - [21/Sep/2024 10:48:33] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:48:34,557 WARNING:Attempt to access invalid file path: W:/20240920164155_1505_XXX0000_20rpm.csv
+2024-09-21 10:48:34,562 INFO:127.0.0.1 - - [21/Sep/2024 10:48:34] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-09-21 10:50:31,942 INFO:Dash is running on http://0.0.0.0:8050/
+
+2024-09-21 10:51:03,290 WARNING:Attempt to access invalid file path: W:/20221108190911_1505_XXX0001_20rpm.csv
+2024-09-21 10:52:54,357 ERROR:Error loading data from W:/20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-09-21 13:59:34,909 INFO:Dash is running on http://127.0.0.1:8050/
+
