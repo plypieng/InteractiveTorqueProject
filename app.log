@@ -188,3 +188,139 @@ TypeError: send_file() got an unexpected keyword argument 'attachment_filename'
 2024-09-21 10:52:54,357 ERROR:Error loading data from W:/20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
 2024-09-21 13:59:34,909 INFO:Dash is running on http://127.0.0.1:8050/
 
+2024-09-21 14:43:49,403 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-09-24 09:01:56,384 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-09-24 11:41:19,038 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-09-24 14:34:51,845 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-09-24 16:11:45,169 ERROR:Error in extract_all_features: 'ALIGNED'
+2024-09-24 16:11:54,138 ERROR:Error in extract_all_features: 'ALIGNED'
+2024-09-24 16:11:54,732 ERROR:Error in extract_all_features: 'ALIGNED'
+2024-09-24 16:14:36,496 ERROR:Error in extract_all_features: 'ALIGNED'
+2024-09-24 16:16:28,194 ERROR:Error in extract_all_features: 'ALIGNED'
+2024-09-24 16:18:39,872 ERROR:Error in extract_all_features: 'ALIGNED'
+2024-09-24 16:24:43,791 ERROR:Error in extract_all_features
+Traceback (most recent call last):
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\utils.py", line 124, in extract_all_features
+    yf = fft(y_filtered_series)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_backend.py", line 28, in __ua_function__
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 60, in fft
+    return _execute_1D('fft', _pocketfft.fft, x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 28, in _execute_1D
+    return pocketfft_func(x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\basic.py", line 17, in c2c
+    tmp = _asfarray(x)
+          ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\helper.py", line 102, in _asfarray
+    copy = True if not x.flags['ALIGNED'] else copy_if_needed
+                       ~~~~~~~^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\flags.py", line 102, in __getitem__
+    raise KeyError(key)
+KeyError: 'ALIGNED'
+2024-09-24 16:24:43,805 INFO:Features text for file 1: 
+2024-09-24 16:25:35,297 ERROR:Error in extract_all_features
+Traceback (most recent call last):
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\utils.py", line 124, in extract_all_features
+    yf = fft(y_filtered_series)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_backend.py", line 28, in __ua_function__
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 60, in fft
+    return _execute_1D('fft', _pocketfft.fft, x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 28, in _execute_1D
+    return pocketfft_func(x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\basic.py", line 17, in c2c
+    tmp = _asfarray(x)
+          ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\helper.py", line 102, in _asfarray
+    copy = True if not x.flags['ALIGNED'] else copy_if_needed
+                       ~~~~~~~^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\flags.py", line 102, in __getitem__
+    raise KeyError(key)
+KeyError: 'ALIGNED'
+2024-09-24 16:25:35,301 INFO:Features text for file 1: 
+2024-09-24 16:26:39,803 ERROR:Error in extract_all_features
+Traceback (most recent call last):
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\utils.py", line 124, in extract_all_features
+    yf = fft(y_filtered_series)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_backend.py", line 28, in __ua_function__
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 60, in fft
+    return _execute_1D('fft', _pocketfft.fft, x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 28, in _execute_1D
+    return pocketfft_func(x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\basic.py", line 17, in c2c
+    tmp = _asfarray(x)
+          ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\helper.py", line 102, in _asfarray
+    copy = True if not x.flags['ALIGNED'] else copy_if_needed
+                       ~~~~~~~^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\flags.py", line 102, in __getitem__
+    raise KeyError(key)
+KeyError: 'ALIGNED'
+2024-09-24 16:26:40,816 INFO:Features text for file 1: 
+2024-09-24 16:26:40,968 ERROR:Error in extract_all_features
+Traceback (most recent call last):
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\utils.py", line 124, in extract_all_features
+    yf = fft(y_filtered_series)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_backend.py", line 28, in __ua_function__
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 60, in fft
+    return _execute_1D('fft', _pocketfft.fft, x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 28, in _execute_1D
+    return pocketfft_func(x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\basic.py", line 17, in c2c
+    tmp = _asfarray(x)
+          ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\helper.py", line 102, in _asfarray
+    copy = True if not x.flags['ALIGNED'] else copy_if_needed
+                       ~~~~~~~^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\flags.py", line 102, in __getitem__
+    raise KeyError(key)
+KeyError: 'ALIGNED'
+2024-09-24 16:26:40,985 INFO:Features text for file 1: 
+2024-09-24 16:26:52,294 ERROR:Error in extract_all_features
+Traceback (most recent call last):
+  File "c:\Users\chimpaleenantaphon\Documents\Fault prediction from torque\1505new40\InteractiveTorqueProject\utils.py", line 124, in extract_all_features
+    yf = fft(y_filtered_series)
+         ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_backend.py", line 28, in __ua_function__
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 60, in fft
+    return _execute_1D('fft', _pocketfft.fft, x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_basic_backend.py", line 28, in _execute_1D
+    return pocketfft_func(x, n=n, axis=axis, norm=norm,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\basic.py", line 17, in c2c
+    tmp = _asfarray(x)
+          ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\scipy\fft\_pocketfft\helper.py", line 102, in _asfarray
+    copy = True if not x.flags['ALIGNED'] else copy_if_needed
+                       ~~~~~~~^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\flags.py", line 102, in __getitem__
+    raise KeyError(key)
+KeyError: 'ALIGNED'
+2024-09-24 16:26:52,294 INFO:Features text for file 2: 
+2024-09-25 08:55:50,710 INFO:Dash is running on http://127.0.0.1:8050/
+

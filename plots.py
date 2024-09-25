@@ -24,7 +24,7 @@ def create_normal_plot(x, y, y_axis_range):
     )
     return fig
 
-def create_filtered_plot(x, y_filtered, filtered_rms, cutoff_freq):
+def create_filtered_plot(x, y_filtered, filtered_rms, moving_max_avg, moving_min_avg, cutoff_freq):
     """
     Create a Plotly figure for the high-pass filtered data plot.
 
@@ -32,6 +32,8 @@ def create_filtered_plot(x, y_filtered, filtered_rms, cutoff_freq):
     - x (array-like): X-axis data.
     - y_filtered (array-like): Filtered Y-axis data.
     - filtered_rms (array-like): RMS values.
+    - moving_max_avg (array-like): Moving average of moving maximum values.
+    - moving_min_avg (array-like): Moving average of moving minimum values.
     - cutoff_freq (float): Cutoff frequency used.
 
     Returns:
@@ -40,6 +42,8 @@ def create_filtered_plot(x, y_filtered, filtered_rms, cutoff_freq):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=x, y=y_filtered, mode='lines', name='Filtered Data'))
     fig.add_trace(go.Scatter(x=x, y=filtered_rms, mode='lines', name='RMS'))
+    fig.add_trace(go.Scatter(x=x, y=moving_max_avg, mode='lines', name='Moving Avg of Max', line=dict(color='green')))
+    fig.add_trace(go.Scatter(x=x, y=moving_min_avg, mode='lines', name='Moving Avg of Min', line=dict(color='red')))
     fig.update_layout(
         title=f'High-Pass Filtered Data (Cutoff = {cutoff_freq} Hz)',
         xaxis_title='X[mm]',

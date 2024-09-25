@@ -91,7 +91,7 @@ def extract_all_features(data, cutoff=0.1, fs=100.0, order=5):
             'HPF Std Dev': np.round(y.std(), 4),
             'HPF Max': np.round(y.max(), 4),
             'HPF Min': np.round(y.min(), 4),
-            'HPF RMS': np.round(np.sqrt(np.mean(y ** 2)), 4)
+            'HPF RMS': np.round(np.sqrt(np.mean(y ** 2)), 4),
         })
 
         # FFT features
@@ -137,3 +137,43 @@ def is_safe_path(basedir, path):
     basedir = os.path.abspath(basedir)
     path = os.path.abspath(path)
     return os.path.commonpath([basedir, path]) == basedir
+
+def detected_sudden_spike(filtered_rms, spike_threshold=0.1):
+    """
+    Detect sudden spikes in the filtered data.
+    
+    Parameters:
+    - filtered_data (ndarray): The High-pass filtered data.
+    - spike_threshold (float): The threshold for detecting spikes.
+    
+    Returns:
+    - spike_detected (bool): True if a sudden spike was detected, False otherwise.
+    """
+
+    #filtered_rms = filtered_rms.dropna()
+    diff = np.abs(np.diff(filtered_rms))
+    spike_detected = np.any(diff > spike_threshold)
+    return spike_detected
+
+def analyse_hpf_rms(filtered_rms, threshold):
+    """
+    Analyse the RMS of the High-pass filtered data.
+    
+    Parameters:
+    - filtered_data (pd.Series): Moving average of the High-pass filtered data.
+    - threshold (float): The threshold for HPF_RMS.
+    
+    Returns:
+    - result (str): The result of the analysis.
+    """
+
+    average_rms = filtered_rms.mean()
+    if average_rms > threshold:
+        result = f"HPF_RMS is over the threshold ({threshold}): {average_rms:.4f}"
+    else:
+        result = f"HPF_RMS is within the threshold ({threshold})."
+    return result
+
+#def machine_learning_prediction(data):
+
+#    return "PASS"
