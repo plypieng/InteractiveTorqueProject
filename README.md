@@ -1,6 +1,7 @@
 # Torque Measurement Visualization and Analysis Application
 
-Welcome to the **Torque Measurement Visualization and Analysis Application**! This application is designed to assist in visualizing, analyzing, and evaluating torque measurements from your in-house automatic torque measurement machine. It provides a user-friendly interface to process CSV data files, perform advanced analyses, and determine PASS or FAILED results based on multiple criteria.
+This application is designed to assist in visualizing, analyzing, and evaluating torque measurements from your in-house automatic torque measurement machine. 
+It provides a user-friendly interface to process CSV data files, perform advanced analyses, and determine PASS or FAILED results based on multiple criteria.
 
 ## Table of Contents
 
