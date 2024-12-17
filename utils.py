@@ -121,6 +121,8 @@ def load_data(file_path):
     """
     data = pd.read_csv(file_path, encoding='shift-jis')
     data.columns = [col.strip() for col in data.columns]
+    #data.columns = ['DATA NO', 'X[mm]', 'N[Ncm]', 'jikuban']
+
     return data
 
 def is_safe_path(basedir, path):
@@ -171,7 +173,7 @@ def analyse_hpf_rms(filtered_rms, threshold):
     if average_rms > threshold:
         result = f"HPF_RMS is over the threshold ({threshold}): {average_rms:.4f}"
     else:
-        result = f"HPF_RMS is within the threshold ({threshold})."
+        result = f"HPF_RMS is within the threshold ({threshold}: {average_rms:.4f})."
     return result
 
 #def machine_learning_prediction(data):

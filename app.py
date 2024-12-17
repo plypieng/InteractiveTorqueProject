@@ -21,10 +21,10 @@ logging.basicConfig(level=logging.INFO, filename='app.log',
                     format='%(asctime)s %(levelname)s:%(message)s')
 
 # Allowed directory for file access
-ALLOWED_DIRECTORY = 'W:/'
+ALLOWED_DIRECTORY = r"W:\\"
 
 # Initialize Dash app with a Bootstrap theme
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CYBORG])  
 
 # Help text for the user guide modal
 help_text = '''
@@ -43,7 +43,7 @@ help_text = '''
 
 # App layout
 app.layout = dbc.Container([
-    html.H1("Torque Measurement Visualization", className="text-center text-primary mb-4"),
+    html.H1("トルクデーター解析 V1.1", className="text-center text-primary mb-4"),
 
     # Help button and modal
     dbc.Button("Help", id="open-modal", n_clicks=0, className="mb-3"),
@@ -69,15 +69,17 @@ app.layout = dbc.Container([
     # File Selection for File 1
     dbc.Row([
         dbc.Col([
-            html.Label("Select Measurement File 1:"),
+            html.Label("測定ファイル 1　選択:"),
             dcc.Dropdown(id='file-dropdown-1', options=[], placeholder="Select a CSV file"),
+            dbc.Button("Previous", id="previous-file-btn", n_clicks=0, color="secondary", className="me-2 mt-2"),
+            dbc.Button("Next", id="next-file-btn", n_clicks=0, color="primary", className="mt-2"),
         ], width=6),
     ], className="mb-3"),
 
     # File Selection for File 2
     dbc.Row([
         dbc.Col([
-            html.Label("Select Measurement File 2 (optional):"),
+            html.Label("測定ファイル 2　選択 (任意):"),
             dcc.Dropdown(id='file-dropdown-2', options=[], placeholder="Select a CSV file"),
         ], width=6),
     ], className="mb-3"),
@@ -85,19 +87,19 @@ app.layout = dbc.Container([
     # parameter Input
     dbc.Row([
         dbc.Col([
-            html.Label("High-Pass Filter Cutoff Frequency (Hz):"),
-            dcc.Input(id='cutoff-input', type='number', value=10, step=0.1),
+            html.Label("HPFカットオフ値(Hz):"),
+            dcc.Input(id='cutoff-input', type='number', value=10.0, step=0.01),
         ], width=3),
         dbc.Col([
-            html.Label("RMS Window Size (samples):"),
+            html.Label("RMSウィンドウズ計算サイズ (samples):"),
             dcc.Input(id='rms-window-size', type='number', value=300, step=100),
         ], width=3),
         dbc.Col([
-            html.Label("hpf-rms-Threshold (Ncm):"),
+            html.Label("HPF_RMS閾値 (Ncm):"),
             dcc.Input(id='hpf-rms-threshold', type='number', value=0.05, step=0.005),
         ], width=3),
         dbc.Col([
-            html.Label("Spike Threshold (Ncm):"),
+            html.Label("Spike閾値 (Ncm):"),
             dcc.Input(id='spike-threshold', type='number', value=0.01, step=0.001),
         ])
     ], className="mb-3"),
@@ -116,7 +118,7 @@ app.layout = dbc.Container([
 
     # Loading indicator and Graphs
     # Graphs for File 1
-    html.H3("File 1 Analysis", className="text-center"),
+    html.H3("ファイル 1:　分析結果", className="text-center"),
     dbc.Row([
         dbc.Col([
             dcc.Loading(
@@ -147,17 +149,17 @@ app.layout = dbc.Container([
             )
         ], width=6),
         dbc.Col([
-            html.H5("Extracted Features for File 1:"),
+            html.H5("ファイル 1:　特徴量"),
             html.Div(id='features-1', style={'whiteSpace': 'pre-wrap'}),
-            html.H5("Analysis Result for File 1:"),
-            html.Div(id='analysis-result-1', style={'whiteSpace': 'pre-wrap', 'fontWeight': 'bold'}),
+            html.H5("ファイル 1:　分析結果"),
+            html.Div(id='analysis-result-1', style={'whiteSpace': 'pre-wrap', 'fontWeight': 'bold', 'fontSize': '1.5em'}),  
         ], width=6),
     ]),
 
     html.Hr(),
 
     # Graphs for File 2 (if selected)
-    html.H3("File 2 Analysis", className="text-center"),
+    html.H3("ファイル 2:　分析結果", className="text-center"),
     dbc.Row([
         dbc.Col([
             dcc.Loading(
@@ -188,10 +190,10 @@ app.layout = dbc.Container([
             )
         ], width=6),
         dbc.Col([
-            html.H5("Extracted Features for File 2:"),
+            html.H5("ファイル 2:　特徴量"),
             html.Div(id='features-2', style={'whiteSpace': 'pre-wrap'}),
-            html.H5("Analysis Result for File 2:"),
-            html.Div(id='analysis-result-2', style={'whiteSpace': 'pre-wrap', 'fontWeight': 'bold'}),
+            html.H5("ファイル 2:　分析結果"),
+            html.Div(id='analysis-result-2', style={'whiteSpace': 'pre-wrap', 'fontWeight': 'bold', 'fontSize': '1.5em'}),
         ], width=6),
     ]),
 
@@ -228,17 +230,24 @@ def toggle_modal(n1, n2, is_open):
     Output('file-dropdown-2', 'options'),
     Output('file-dropdown-2', 'value'),
     Input('interval-component', 'n_intervals'),
+    Input('next-file-btn', 'n_clicks'),
+    Input('previous-file-btn', 'n_clicks'),
     State('file-dropdown-1', 'options'),
     State('file-dropdown-1', 'value'),
     State('file-dropdown-2', 'options'),
     State('file-dropdown-2', 'value')
 )
-def update_file_options(n_intervals, prev_options1, selected_file1, prev_options2, selected_file2):
+def update_file_options(n_intervals, next_clicks, previous_clicks, prev_options1, selected_file1, prev_options2, selected_file2):
     directory = ALLOWED_DIRECTORY
     try:
         files = [f for f in os.listdir(directory) if f.endswith('.csv')]
         options = [{'label': f, 'value': os.path.join(directory, f)} for f in files]
 
+        ctx = dash.callback_context
+        if not ctx.triggered:
+            return no_update, no_update, no_update, no_update
+        
+        trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
         # Compare new options with previous options
         if options == prev_options1:
             # No change in options
@@ -253,12 +262,30 @@ def update_file_options(n_intervals, prev_options1, selected_file1, prev_options
         valid_values = [option['value'] for option in options]
         value_update_1 = selected_file1 if selected_file1 in valid_values else None
         value_update_2 = selected_file2 if selected_file2 in valid_values else None
-
+    
         # Only update the values if they have changed
         if value_update_1 == selected_file1:
             value_update_1 = no_update
         if value_update_2 == selected_file2:
             value_update_2 = no_update
+        
+        if trigger_id in ['next-file-btn', 'previous-file-btn']:
+            files_values = [option['value'] for option in options]
+            if not files_values:
+                return no_update, no_update, no_update, no_update
+            if selected_file1 not in files_values:
+                current_index = 0
+            else:
+                current_index = files_values.index(selected_file1)
+
+            if trigger_id == 'next-file-btn':
+                next_index = current_index + 1 % len(files_values)
+            elif trigger_id == 'previous-file-btn':
+                next_index = current_index - 1 % len(files_values)
+            else:
+                new_index = current_index
+
+            value_update_1 = files_values[next_index]        
 
         return options_update_1, value_update_1, options_update_2, value_update_2
     except Exception as e:
