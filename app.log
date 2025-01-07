@@ -7754,3 +7754,131 @@ TypeError: unsupported operand type(s) for /: 'NoneType' and 'float'
 
 2024-12-17 11:17:40,323 INFO:Dash is running on http://127.0.0.1:8050/
 
+2024-12-17 11:37:52,153 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 11:40:59,128 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 11:45:15,714 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 11:48:00,314 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 11:51:35,200 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 11:52:10,179 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 11:59:33,122 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 12:15:48,434 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 12:16:47,428 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:47,519 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:48,175 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:50,156 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:52,166 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:54,144 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:56,532 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:58,156 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:16:59,575 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:00,166 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:02,167 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:04,164 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:06,146 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:08,174 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:10,158 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:12,167 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:14,175 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:16,150 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:18,170 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:20,179 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:22,163 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:24,177 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:26,151 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:28,176 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:30,143 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:32,142 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:34,144 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:36,146 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:38,162 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:40,183 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:42,173 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:44,164 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:46,166 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:48,167 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:50,173 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:52,173 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:17:54,174 ERROR:Error loading data from W:\\20221108190911_1505_XXX0001_20rpm.csv: 'X[mm]'
+2024-12-17 12:31:47,890 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-17 12:34:48,974 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-28 13:06:39,439 INFO:Dash is running on http://127.0.0.1:8050/
+
+2024-12-28 13:07:58,188 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:07:58,190 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:07:58,214 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:07:58,233 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:07:58,234 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:07:58,237 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:08:01,109 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:08:11,121 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:08:22,606 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:08:53,664 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:08:53,672 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:08:53,672 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:09:02,615 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:09:57,748 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:09:57,886 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:09:59,618 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:10:02,613 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:10:58,668 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:11:00,664 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:11:02,618 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:11:58,683 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:12:00,613 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:12:02,666 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:12:58,674 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:13:00,619 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:13:02,610 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:13:58,649 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:14:00,614 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:14:02,608 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:14:58,648 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:15:00,670 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:15:02,626 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:15:58,672 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:16:00,614 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:16:02,708 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:16:58,653 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:17:00,609 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:17:02,656 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:17:58,636 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:18:00,608 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:18:02,622 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:18:58,657 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:19:00,617 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:19:02,609 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:19:58,744 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:20:00,613 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:20:02,602 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:20:58,656 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:21:00,605 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:21:02,619 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:21:58,663 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:22:00,649 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:22:02,611 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:22:58,647 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:23:00,611 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2024-12-28 13:23:02,612 ERROR:Error accessing directory W:\\: [WinError 53] The network path was not found: 'W:\\\\'
+2025-01-06 14:16:26,372 INFO:Added ball size: Small
+2025-01-06 14:16:26,375 INFO:Added ball size: Medium
+2025-01-06 14:16:26,376 INFO:Added ball size: Large
+2025-01-06 14:16:26,382 INFO:Ball sizes populated successfully.
+2025-01-06 16:39:59,784 WARNING:Trained model not found. Predictions will be disabled.
+2025-01-06 16:42:34,531 WARNING:Trained model not found. Predictions will be disabled.
+2025-01-06 16:42:34,536 INFO:Dash is running on http://127.0.0.1:8050/
+
+2025-01-06 16:42:37,483 WARNING:Trained model not found. Predictions will be disabled.
+2025-01-06 17:06:52,147 WARNING:Trained model not found. Predictions will be disabled.
+2025-01-06 17:06:52,153 INFO:Dash is running on http://127.0.0.1:8050/
+
+2025-01-06 17:06:54,944 WARNING:Trained model not found. Predictions will be disabled.
