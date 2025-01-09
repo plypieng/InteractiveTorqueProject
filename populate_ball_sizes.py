@@ -1,4 +1,6 @@
-from utils import SessionLocal, BallSize, Base, engine
+# populate_ball_sizes.py
+from app.database.session import SessionLocal
+from app.database.models import BallSize
 import logging
 
 # Configure logging

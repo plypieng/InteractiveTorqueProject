@@ -1,3 +1,4 @@
+# celery_worker.py
 from celery import Celery
 import os
 
@@ -14,4 +15,4 @@ celery_app.conf.update(
 )
 
 # Import tasks after Celery app initialization to avoid circular imports
-import tasks  # Ensure that tasks.py exists
+from app.tasks import measurement_tasks
