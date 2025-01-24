@@ -5,6 +5,7 @@ def register_callbacks(app):
     from . import data_visualization
     from . import data_labeling
     from . import review_submission
+    from . import model_training
     
     # Register callbacks
     navigation.register_navigation_callbacks(app)
@@ -12,4 +13,6 @@ def register_callbacks(app):
     data_visualization.register_data_visualization_callbacks(app)
     data_labeling.register_data_labeling_callbacks(app)
     review_submission.register_review_submission_callbacks(app)
+    model_training.register_model_training_callbacks(app)
+    model_training.register_db_review_callbacks(app)
     # Add other callback registrations as needed

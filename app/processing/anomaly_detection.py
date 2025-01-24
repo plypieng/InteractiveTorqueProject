@@ -10,36 +10,25 @@ def detected_sudden_spike(filtered_rms, spike_threshold=0.1):
         spike_detected = np.any(diff > spike_threshold)
         return spike_detected
     except Exception as e:
-        logging.error(f"Error in detected_sudden_spike: {e}")
+        logging.error(f"Error in detected_sudden_spike: {e}", exc_info=True)
         return False
 
 def analyse_hpf_rms(filtered_rms, threshold):
     try:
         average_rms = filtered_rms.mean()
         if average_rms > threshold:
-            result = f"HPF_RMS is over the threshold ({threshold}): {average_rms:.4f}"
+            return f"HPF_RMS is over the threshold ({threshold}): {average_rms:.4f}"
         else:
-            result = f"HPF_RMS is within the threshold ({threshold}): {average_rms:.4f}."
-        return result
+            return f"HPF_RMS is within the threshold ({threshold}): {average_rms:.4f}."
     except Exception as e:
-        logging.error(f"Error in analyse_hpf_rms: {e}")
+        logging.error(f"Error in analyse_hpf_rms: {e}", exc_info=True)
         return "Error in HPF_RMS analysis."
 
 def detect_anomalous_measurement(torque_values: np.ndarray, ball_size_id: int, session: Session):
     """
-    Detects anomalies in torque measurements based on ball size specifications.
-
-    Parameters:
-    - torque_values (np.ndarray): Array of torque measurements.
-    - ball_size_id (int): ID of the ball size to retrieve torque specifications.
-    - session (Session): SQLAlchemy session for database access.
-
-    Returns:
-    - anomaly_detected (bool): True if anomalies are found, False otherwise.
-    - message (str): Description of the anomaly status.
+    If you want to check torque_values vs. ball_size specs in DB
     """
     try:
-        # Retrieve BallSize from the database
         ball_size = session.query(BallSize).filter(BallSize.id == ball_size_id).first()
         if not ball_size:
             error_msg = f"BallSize with ID {ball_size_id} not found."
@@ -48,22 +37,14 @@ def detect_anomalous_measurement(torque_values: np.ndarray, ball_size_id: int, s
 
         torque_min = ball_size.torque_min
         torque_max = ball_size.torque_max
-
-        # Check if any torque values are outside the acceptable range
         anomalies = torque_values[(torque_values < torque_min) | (torque_values > torque_max)]
         if anomalies.size > 0:
-            anomaly_detected = True
             anomaly_count = anomalies.size
-            anomaly_details = f"{anomaly_count} torque measurements out of range [{torque_min}, {torque_max}]."
-            message = f"Anomaly Detected: {anomaly_details}"
+            message = f"Anomaly Detected: {anomaly_count} out of range [{torque_min}, {torque_max}]."
             logging.info(message)
-            return anomaly_detected, message
+            return True, message
         else:
-            anomaly_detected = False
-            message = "No anomalies detected in torque measurements."
-            logging.info(message)
-            return anomaly_detected, message
-
+            return False, "No anomalies detected in torque measurements."
     except Exception as e:
-        logging.error(f"Error in detect_anomalous_measurement: {e}")
+        logging.error(f"Error in detect_anomalous_measurement: {e}", exc_info=True)
         return False, "Error during anomaly detection."

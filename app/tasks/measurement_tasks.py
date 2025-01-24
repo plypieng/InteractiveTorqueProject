@@ -10,10 +10,13 @@ from ..database.models import Measurement, Feature
 import plotly.graph_objs as go
 import pandas as pd
 import logging
-import os
 
 @celery_app.task
 def process_measurement(file_path, cutoff_freq, rms_window_size, hpf_rms_threshold, spike_threshold, y_axis_range, file_label, ball_size_id, operator_id):
+    """
+    Example Celery task that processes a measurement, extracts features, and 
+    stores them in the old 'Feature' table row by row.
+    """
     normal_fig = go.Figure()
     filtered_fig = go.Figure()
     fft_fig = go.Figure()
@@ -21,7 +24,7 @@ def process_measurement(file_path, cutoff_freq, rms_window_size, hpf_rms_thresho
     analysis_result_text = ""
 
     from ..config import Config
-    # Security check
+    from ..utils.file_security import is_safe_path
     if not is_safe_path(Config.ALLOWED_DIRECTORY, file_path):
         logging.warning(f"Attempt to access invalid file path: {file_path}")
         error_fig = go.Figure()
@@ -35,45 +38,34 @@ def process_measurement(file_path, cutoff_freq, rms_window_size, hpf_rms_thresho
         return [error_fig, go.Figure(), go.Figure()], "", ""
     
     try:
-        # Load data
         data = load_data(file_path)
         x = data["X[mm]"]
         y = data["N[Ncm]"]
         
-        # High-Pass Filtering
+        # Filter etc.
         y_filtered = high_pass_filter(y.to_numpy(), cutoff=cutoff_freq)
         filtered_series = pd.Series(y_filtered)
         filtered_rms = filtered_series.rolling(window=rms_window_size).apply(calculate_rms, raw=True)
         
-        # Compute moving max and min of the filtered data
         moving_max = filtered_series.rolling(window=100, min_periods=1).max()
         moving_min = filtered_series.rolling(window=100, min_periods=1).min()
-        
-        # Compute moving average of the moving max and min
         moving_max_avg = moving_max.rolling(window=int(rms_window_size), min_periods=1).mean()
         moving_min_avg = moving_min.rolling(window=int(rms_window_size), min_periods=1).mean()
         
-        # FFT
         xf, amplitudes = calculate_fft(y.to_numpy())
         
-        # Create plots
         normal_fig = create_normal_plot(x, y, y_axis_range)
-        filtered_fig = create_filtered_plot(
-            x, y_filtered, filtered_rms, moving_max_avg, moving_min_avg, cutoff_freq, y_axis_range
-        )
+        filtered_fig = create_filtered_plot(x, y_filtered, filtered_rms, moving_max_avg, moving_min_avg, cutoff_freq, y_axis_range)
         fft_fig = create_fft_plot(xf, amplitudes)
         
-        # Extract features
-        features = extract_all_features(y, cutoff=cutoff_freq)
+        # Old approach: extract_all_features
+        features = extract_all_features(y, cutoff=cutoff_freq)  # from feature_extraction
         features_text = "\n".join([f"{key}: {value}" for key, value in features.items()])
         
-        # Generate analysis result
         analysis_result = []
         spike_detected = detected_sudden_spike(filtered_rms, spike_threshold)
         if spike_detected:
-            analysis_result.append(
-                "Sudden spike detected in filtered RMS data. Re-measurement recommended."
-            )
+            analysis_result.append("Sudden spike detected in filtered RMS data. Re-measurement recommended.")
         else:
             analysis_result.append("No sudden spike detected in filtered RMS data.")
         
@@ -85,45 +77,39 @@ def process_measurement(file_path, cutoff_freq, rms_window_size, hpf_rms_thresho
         else:
             overall_result = "PASSED"
         
-        analysis_result_text = "\n".join(analysis_result)
-        analysis_result_text = f"Overall analysis result: {overall_result}\n{analysis_result_text}"
+        analysis_result_text = f"Overall analysis result: {overall_result}\n" + "\n".join(analysis_result)
         
-        operator_id = operator_id if operator_id else "Unknown Operator"
-        timestamp = pd.Timestamp.now().isoformat()
-        features_text += f"\nOperator ID: {operator_id}\nTimestamp: {timestamp}"
-        
-        # Store measurement and features in the database
+        # Store measurement + row-based features
         session = SessionLocal()
         try:
             measurement = Measurement(
                 file_path=file_path,
                 operator_id=operator_id,
                 ball_size_id=ball_size_id,
-                timestamp=pd.Timestamp.now(),
                 status='Processed'
             )
             session.add(measurement)
             session.flush()
             
-            feature_objects = [
-                Feature(
+            # Insert each feature as a row
+            for name, value in features.items():
+                row_feature = Feature(
                     measurement_id=measurement.id,
                     feature_name=name,
-                    feature_value=value
+                    feature_value=float(value) if value is not None else 0.0
                 )
-                for name, value in features.items()
-            ]
-            session.bulk_save_objects(feature_objects)
+                session.add(row_feature)
+
             session.commit()
         except Exception as e:
-            logging.error(f"Error storing measurement and features: {e}")
+            logging.error(f"Error storing measurement and features: {e}", exc_info=True)
             session.rollback()
         finally:
             session.close()
         
         return [normal_fig, filtered_fig, fft_fig], features_text, analysis_result_text
     except Exception as e:
-        logging.error(f"Error processing file {file_path}: {e}")
+        logging.error(f"Error processing file {file_path}: {e}", exc_info=True)
         error_fig = go.Figure()
         error_fig.add_annotation(
             text=f"Error processing data: {e}",

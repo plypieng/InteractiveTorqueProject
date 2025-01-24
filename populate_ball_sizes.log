@@ -1,0 +1,133 @@
+2025-01-21 16:51:00,202 ERROR:Error populating ball sizes: When initializing mapper Mapper[Measurement(measurements)], expression 'Feature' failed to locate a name ('Feature'). If this is a class name, consider adding this relationship() to the <class 'app.database.models.Measurement'> class after both dependent classes have been defined.
+2025-01-22 10:30:50,117 ERROR:Error populating ball sizes: (sqlite3.OperationalError) no such table: ball_sizes
+[SQL: SELECT ball_sizes.id AS ball_sizes_id, ball_sizes.size AS ball_sizes_size, ball_sizes.torque_min AS ball_sizes_torque_min, ball_sizes.torque_max AS ball_sizes_torque_max 
+FROM ball_sizes 
+WHERE ball_sizes.size = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('Small', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: ball_sizes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\Documents\ply\InteractiveTorqueProjectv2\populate_ball_sizes.py", line 23, in populate_ball_sizes
+    existing = session.query(BallSize).filter(BallSize.size == bs["size"]).first()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: ball_sizes
+[SQL: SELECT ball_sizes.id AS ball_sizes_id, ball_sizes.size AS ball_sizes_size, ball_sizes.torque_min AS ball_sizes_torque_min, ball_sizes.torque_max AS ball_sizes_torque_max 
+FROM ball_sizes 
+WHERE ball_sizes.size = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('Small', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-01-22 10:41:46,643 ERROR:Error populating ball sizes: (sqlite3.OperationalError) no such table: ball_sizes
+[SQL: SELECT ball_sizes.id AS ball_sizes_id, ball_sizes.size AS ball_sizes_size, ball_sizes.torque_min AS ball_sizes_torque_min, ball_sizes.torque_max AS ball_sizes_torque_max 
+FROM ball_sizes 
+WHERE ball_sizes.size = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('Small', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: ball_sizes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\Documents\ply\InteractiveTorqueProjectv2\populate_ball_sizes.py", line 23, in populate_ball_sizes
+    existing = session.query(BallSize).filter(BallSize.size == bs["size"]).first()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\query.py", line 2728, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 2247, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\default.py", line 941, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: ball_sizes
+[SQL: SELECT ball_sizes.id AS ball_sizes_id, ball_sizes.size AS ball_sizes_size, ball_sizes.torque_min AS ball_sizes_torque_min, ball_sizes.torque_max AS ball_sizes_torque_max 
+FROM ball_sizes 
+WHERE ball_sizes.size = ?
+ LIMIT ? OFFSET ?]
+[parameters: ('Small', 1, 0)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-01-22 11:02:42,807 INFO:Added ball size: Small
+2025-01-22 11:02:42,812 INFO:Added ball size: Medium
+2025-01-22 11:02:42,813 INFO:Added ball size: Large
+2025-01-22 11:02:42,818 INFO:Ball sizes populated successfully.
+2025-01-24 16:21:12,955 INFO:Added ball size: Small
+2025-01-24 16:21:12,964 INFO:Added ball size: Medium
+2025-01-24 16:21:12,965 INFO:Added ball size: Large
+2025-01-24 16:21:12,970 INFO:Ball sizes populated successfully.

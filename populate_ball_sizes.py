@@ -3,20 +3,20 @@ from app.database.session import SessionLocal
 from app.database.models import BallSize
 import logging
 
-# Configure logging
 logging.basicConfig(
-    level=logging.INFO, filename="populate_ball_sizes.log", format="%(asctime)s %(levelname)s:%(message)s"
+    level=logging.INFO,
+    filename="populate_ball_sizes.log",
+    format="%(asctime)s %(levelname)s:%(message)s"
 )
 
 def populate_ball_sizes():
     session = SessionLocal()
     try:
-        # Define ball sizes and their torque ranges
         ball_sizes = [
             {"size": "Small", "torque_min": 0.0, "torque_max": 2.0},
             {"size": "Medium", "torque_min": 2.0, "torque_max": 8.0},
             {"size": "Large", "torque_min": 8.0, "torque_max": 12.0},
-            # Add more ball sizes as needed
+            # Add more if needed
         ]
 
         for bs in ball_sizes:
@@ -35,7 +35,7 @@ def populate_ball_sizes():
         session.commit()
         logging.info("Ball sizes populated successfully.")
     except Exception as e:
-        logging.error(f"Error populating ball sizes: {e}")
+        logging.error(f"Error populating ball sizes: {e}", exc_info=True)
         session.rollback()
     finally:
         session.close()

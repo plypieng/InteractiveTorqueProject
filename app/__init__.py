@@ -13,11 +13,11 @@ def create_app():
     log_file = os.path.join(log_directory, "app.log")
     
     logging.basicConfig(
-        level=logging.DEBUG,  # Capture ERROR and above levels
+        level=logging.DEBUG,  # Capture DEBUG and above
         format="%(asctime)s %(levelname)s:%(message)s",
         handlers=[
             logging.FileHandler(log_file, mode='a', encoding='utf-8'),
-            logging.StreamHandler()  # Optional: Log to console as well
+            logging.StreamHandler()  # Log to console as well
         ]
     )
     
@@ -28,10 +28,8 @@ def create_app():
             dbc.themes.CYBORG,
             'https://use.fontawesome.com/releases/v5.15.4/css/all.css'
         ],
-        suppress_callback_exceptions=False,  # Changed to False to catch duplicate callbacks
-        meta_tags=[
-            {"name": "viewport", "content": "width=device-width, initial-scale=1"},
-        ]
+        suppress_callback_exceptions=False,  # Catch duplicate callbacks
+        meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
     )
     
     app.layout = create_layout()

@@ -13,14 +13,14 @@ def load_data(file_path):
         data.columns = [col.strip() for col in data.columns]
         return data
     except UnicodeDecodeError:
-        # Attempt with 'utf-8' encoding
+        # Attempt with utf-8
         try:
             data = pd.read_csv(file_path, encoding='utf-8')
             data.columns = [col.strip() for col in data.columns]
             return data
         except Exception as e:
-            logging.error(f"Error loading data from {file_path}: {e}")
+            logging.error(f"Error loading data from {file_path}: {e}", exc_info=True)
             raise e
     except Exception as e:
-        logging.error(f"Error loading data from {file_path}: {e}")
+        logging.error(f"Error loading data from {file_path}: {e}", exc_info=True)
         raise e

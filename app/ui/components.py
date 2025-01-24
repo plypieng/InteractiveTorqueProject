@@ -1,6 +1,7 @@
 # app/ui/components.py
-from dash import html, dcc
+from dash import html, dcc, dash_table
 import dash_bootstrap_components as dbc
+
 
 def get_loading_overlay():
     return dbc.Spinner(
@@ -14,22 +15,22 @@ def get_confirmation_modal():
     return dbc.Modal([
         dbc.ModalHeader(dbc.ModalTitle([
             html.I(className="fas fa-check-circle me-2"),
-            "Confirm Submission"
+            "提出の確認"
         ])),
         dbc.ModalBody([
-            html.P("Are you sure you want to submit the following data?"),
+            html.P("以下のデータを提出してもよろしいですか？"),
             html.Div(id="confirmation-content", className="mt-3"),
         ]),
         dbc.ModalFooter([
             dbc.Button(
-                "Cancel",
-                id="cancel-submission",
+                "キャンセル",
+                id="cancel-submission-btn",
                 color="secondary",
                 className="me-2"
             ),
             dbc.Button(
-                "Confirm Submission",
-                id="confirm-submission",
+                "提出を確認",
+                id="confirm-submission-btn",
                 color="success"
             ),
         ]),
@@ -53,53 +54,53 @@ def get_progress_indicator():
 
 def get_help_modal():
     help_text = """
-    ### How to Use This Application
-    - **Select Measurement Files:** Choose up to two CSV files from the dropdowns to compare.
-    - **Select Ball Size:** Choose the appropriate ball size for the torque measurement.
-    - **Adjust Parameters:**
-      - **High-Pass Filter Cutoff Frequency:** Enter a value in Hz.
-      - **RMS Window Size:** Enter the window size for calculating moving RMS.
-      - **HPF_RMS Threshold:** Set the threshold for HPF_RMS.
-      - **Spike Threshold:** Set the threshold for spike detection in RMS data.
-      - **Initial Torque Input:** Enter the initial torque measurement to receive a ball size recommendation.
-      - **Y-axis Scale:** Use the slider to set the range.
-    - **View Graphs:** The plots will update based on your selections.
-    - **View Analysis Results:** PASS or FAILED results are displayed based on the analysis.
-    - **Download Data:** Use the links to download CSV or PDF files.
-    - **Label Data:** Assign labels to each dataset for model training.
+    ### このアプリケーションの使い方
+    - **測定ファイルの選択:** 比較するために、ドロップダウンから最大2つのCSVファイルを選択します。
+    - **ボールサイズの選択:** トルク測定に適したボールサイズを選択します。
+    - **パラメータの調整:**
+      - **ハイパスフィルターカットオフ周波数（Hz）:** Hz単位で値を入力します。
+      - **RMSウィンドウサイズ:** 移動RMSを計算するためのウィンドウサイズを入力します。
+      - **HPF_RMSしきい値:** HPF_RMSのしきい値を設定します。
+      - **スパイクしきい値:** RMSデータのスパイク検出のためのしきい値を設定します。
+      - **初期トルク入力（Nm）:** 初期トルク測定値を入力して、ボールサイズの推奨を受けます。
+      - **Y軸スケール:** スライダーを使用して範囲を設定します。
+    - **グラフの表示:** 選択に基づいてプロットが更新されます。
+    - **分析結果の表示:** 分析に基づいてPASSまたはFAILEDの結果が表示されます。
+    - **データのダウンロード:** リンクを使用してCSVまたはPDFファイルをダウンロードします。
+    - **データのラベル付け:** モデルのトレーニングのために各データセットにラベルを割り当てます。
     """
     
     return dbc.Modal([
         dbc.ModalHeader(dbc.ModalTitle([
             html.I(className="fas fa-book me-2"),
-            "User Guide"
+            "ユーザーガイド"
         ])),
         dbc.ModalBody(dcc.Markdown(help_text)),
         dbc.ModalFooter(
-            dbc.Button("Close", id="close-modal", className="ms-auto")
+            dbc.Button("閉じる", id="close-modal", className="ms-auto")
         ),
     ], id="modal", is_open=False, size="lg")
 
 def get_tab1_content():
     return dbc.Container([
-        html.H3("Step 1: Select Measurement Files and Ball Size", className="mb-4"),
+        html.H3("ステップ 1: 測定結果選択", className="mb-4"),
         dbc.Row([
             dbc.Col([
-                html.Label("Operator ID:", className="fw-bold"),
+                html.Label("オペレーターID:", className="fw-bold"),
                 dbc.Input(
                     id="operator-id-input",
                     type="text",
-                    placeholder="Enter your ID",
+                    placeholder="IDを入力してください",
                     className="mb-2",
                     valid=False,  # Initialize as not valid
                     invalid=False,  # Initialize as not invalid
                 ),
                 dbc.FormFeedback(
-                    "Please enter your operator ID",
+                    "オペレーターIDを入力してください",
                     id="operator-id-feedback",
                 ),
                 dbc.Tooltip(
-                    "Provide your unique operator identifier",
+                    "一意のオペレーター識別子を入力してください",
                     target="operator-id-input",
                     placement="right",
                     delay={"show": 200, "hide": 0},
@@ -109,20 +110,20 @@ def get_tab1_content():
 
         dbc.Row([
             dbc.Col([
-                html.Label("Ball Size:", className="fw-bold"),
+                html.Label("ボールサイズ:", className="fw-bold"),
                 dbc.Select(
                     id="ball-size-dropdown",
                     options=[],
-                    placeholder="Select a ball size",
+                    placeholder="ボールサイズを選択してください",
                     className="mb-2",
                     value=None,
                 ),
                 dbc.FormFeedback(
-                    "Please select a ball size",
+                    "ボールサイズを選択してください",
                     id="ball-size-feedback",
                 ),
                 dbc.Tooltip(
-                    "Select the appropriate ball size for torque measurement",
+                    "トルク測定に適したボールサイズを選択してください",
                     target="ball-size-dropdown",
                     placement="right",
                     delay={"show": 200, "hide": 0},
@@ -132,20 +133,20 @@ def get_tab1_content():
 
         dbc.Row([
             dbc.Col([
-                html.Label("測定ファイル 1　選択:", className="fw-bold"),
+                html.Label("測定ファイル 1 選択:", className="fw-bold"),
                 dbc.Select(
                     id="file-dropdown-1",
                     options=[],
-                    placeholder="Select a CSV file",
+                    placeholder="CSVファイルを選択してください",
                     className="mb-2",
                     value=None,
                 ),
                 dbc.FormFeedback(
-                    "Please select a primary CSV file",
+                    "主要なCSVファイルを選択してください",
                     id="file-1-feedback",
                 ),
                 dbc.Tooltip(
-                    "Select the primary measurement CSV file",
+                    "主要な測定用CSVファイルを選択してください",
                     target="file-dropdown-1",
                     placement="right",
                     delay={"show": 200, "hide": 0},
@@ -155,27 +156,42 @@ def get_tab1_content():
 
         dbc.Row([
             dbc.Col([
-                html.Label("測定ファイル 2　選択 (任意):", className="fw-bold"),
+                html.Label("測定ファイル 2 選択（WIP）:", className="fw-bold"),
                 dbc.Select(
                     id="file-dropdown-2",
                     options=[],
-                    placeholder="Select a CSV file (optional)",
+                    placeholder="CSVファイルを選択してください（任意）",
                     className="mb-2",
                     value=None,
                 ),
                 dbc.Tooltip(
-                    "Select an additional measurement CSV file for comparison (optional)",
+                    "比較用に追加の測定用CSVファイルを選択してください（任意）",
                     target="file-dropdown-2",
                     placement="right",
                     delay={"show": 200, "hide": 0},
                 ),
             ], width=12, md=6),
         ], className="mb-4"),
-
+        
+# ===== NEW: Model selection dropdown =====
+        dbc.Row([
+            dbc.Col([
+                html.Label("使用するモデル:", className="fw-bold"),
+                dbc.Select(
+                    id="model-dropdown",
+                    options=[],  # We'll populate via callback
+                    placeholder="トレーニング済みモデルを選択してください",
+                    className="mb-2",
+                    value=None,
+                ),
+                dbc.FormText("予測に使用する.pklモデルを選択"),
+            ], width=12, md=6),
+        ], className="mb-4"),
+        
         dbc.Button(
             [
                 html.I(className="fas fa-arrow-right me-2"),
-                "Proceed to Visualization"
+                "可視化に進む"
             ],
             id="proceed-visualization-btn",
             n_clicks=0,
@@ -188,9 +204,9 @@ def get_tab1_content():
 
 def get_tab2_content():
     return dbc.Container([
-        html.H3("Step 2: Data Visualization", className="mb-4"),
+        html.H3("ステップ 2: データの可視化", className="mb-4"),
         
-        # Model Prediction Alert
+        # Model Prediction Alert (optional, can remove if not needed)
         dbc.Alert(
             id="model-prediction",
             className="mb-4",
@@ -211,16 +227,17 @@ def get_tab2_content():
             className="mb-4"
         ),
         
-        # Parameter Inputs Card
+        # ====== Card 1: Graphs Section ======
         dbc.Card([
             dbc.CardHeader([
                 html.I(className="fas fa-sliders-h me-2"),
-                "Analysis Parameters"
+                "グラフ表示"
             ], className="fw-bold"),
             dbc.CardBody([
+                # Parameter inputs row is optional—moved if you like
                 dbc.Row([
                     dbc.Col([
-                        html.Label("High-Pass Filter Cutoff Frequency (Hz):", className="fw-bold"),
+                        html.Label("ハイパスフィルターカットオフ周波数（Hz）:", className="fw-bold"),
                         dbc.InputGroup([
                             dbc.Input(
                                 id="cutoff-input",
@@ -232,10 +249,10 @@ def get_tab2_content():
                             ),
                             dbc.InputGroupText("Hz"),
                         ]),
-                        dbc.FormText("Recommended range: 0.01 - 50 Hz"),
+                        dbc.FormText("推奨範囲: 0.01 - 50 Hz"),
                     ], md=4),
                     dbc.Col([
-                        html.Label("RMS Window Size:", className="fw-bold"),
+                        html.Label("RMSウィンドウサイズ:", className="fw-bold"),
                         dbc.Input(
                             id="rms-window-size",
                             type="number",
@@ -244,10 +261,10 @@ def get_tab2_content():
                             value=300,
                             className="mb-2",
                         ),
-                        dbc.FormText("Recommended range: 100 - 500"),
+                        dbc.FormText("推奨範囲: 100 - 500"),
                     ], md=4),
                     dbc.Col([
-                        html.Label("HPF_RMS Threshold:", className="fw-bold"),
+                        html.Label("HPF_RMSしきい値:", className="fw-bold"),
                         dbc.Input(
                             id="hpf-rms-threshold",
                             type="number",
@@ -256,12 +273,13 @@ def get_tab2_content():
                             value=0.05,
                             className="mb-2",
                         ),
-                        dbc.FormText("Recommended range: 0.005 - 0.1"),
+                        dbc.FormText("推奨範囲: 0.005 - 0.1"),
                     ], md=4),
                 ], className="mb-3"),
+                
                 dbc.Row([
                     dbc.Col([
-                        html.Label("Spike Threshold:", className="fw-bold"),
+                        html.Label("スパイクしきい値:", className="fw-bold"),
                         dbc.Input(
                             id="spike-threshold",
                             type="number",
@@ -270,10 +288,10 @@ def get_tab2_content():
                             value=0.1,
                             className="mb-2",
                         ),
-                        dbc.FormText("Recommended range: 0.05 - 0.2"),
+                        dbc.FormText("推奨範囲: 0.05 - 0.2"),
                     ], md=4),
                     dbc.Col([
-                        html.Label("Initial Torque (Nm):", className="fw-bold"),
+                        html.Label("初期トルク（Nm）:", className="fw-bold"),
                         dbc.InputGroup([
                             dbc.Input(
                                 id="initial-torque-input",
@@ -287,7 +305,7 @@ def get_tab2_content():
                         ]),
                     ], md=4),
                     dbc.Col([
-                        html.Label("Y-axis Scale:", className="fw-bold"),
+                        html.Label("Y軸スケール:", className="fw-bold"),
                         dcc.RangeSlider(
                             id="y-axis-slider",
                             min=0,
@@ -300,91 +318,140 @@ def get_tab2_content():
                         ),
                     ], md=4),
                 ]),
-            ]),
-        ], className="mb-4"),
-        
-        # Graphs Section
-        html.Div([
-            dbc.Row([
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.I(className="fas fa-chart-line me-2"),
-                            "Raw Data"
-                        ], className="fw-bold"),
-                        dbc.CardBody(
-                            dcc.Loading(
-                                id="loading-normal-graph",
-                                type="circle",
-                                children=dcc.Graph(id="normal-graph"),
-                            )
-                        ),
-                    ]),
-                ], md=6),
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.I(className="fas fa-filter me-2"),
-                            "Filtered Data"
-                        ], className="fw-bold"),
-                        dbc.CardBody(
-                            dcc.Loading(
-                                id="loading-filtered-graph",
-                                type="circle",
-                                children=dcc.Graph(id="filtered-graph"),
-                            )
-                        ),
-                    ]),
-                ], md=6),
-            ], className="mb-4"),
-            
-            dbc.Row([
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.I(className="fas fa-wave-square me-2"),
-                            "FFT Analysis"
-                        ], className="fw-bold"),
-                        dbc.CardBody(
-                            dcc.Loading(
-                                id="loading-fft-graph",
-                                type="circle",
-                                children=dcc.Graph(id="fft-graph"),
-                            )
-                        ),
-                    ]),
-                ], md=6),
-                dbc.Col([
-                    dbc.Card([
-                        dbc.CardHeader([
-                            html.I(className="fas fa-list-alt me-2"),
-                            "Analysis Results"
-                        ], className="fw-bold"),
-                        dbc.CardBody([
-                            html.H5([
-                                html.I(className="fas fa-chart-bar me-2"),
-                                "特徴量"
-                            ]),
-                            html.Div(
-                                id="features",
-                                style={"whiteSpace": "pre-wrap"},
-                                className="mb-4"
-                            ),
-                            html.H5([
-                                html.I(className="fas fa-clipboard-check me-2"),
-                                "分析結果"
-                            ]),
-                            html.Div(
-                                id="analysis-result",
-                                style={
-                                    "whiteSpace": "pre-wrap",
-                                    "fontWeight": "bold",
-                                    "fontSize": "1.2em"
-                                }
+
+                # Graphs
+                dbc.Row([
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader([
+                                html.I(className="fas fa-chart-line me-2"),
+                                "生データ"
+                            ], className="fw-bold"),
+                            dbc.CardBody(
+                                dcc.Loading(
+                                    id="loading-normal-graph",
+                                    type="circle",
+                                    children=dcc.Graph(id="normal-graph"),
+                                )
                             ),
                         ]),
-                    ]),
-                ], md=6),
+                    ], md=6),
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader([
+                                html.I(className="fas fa-filter me-2"),
+                                "フィルタ済みデータ"
+                            ], className="fw-bold"),
+                            dbc.CardBody(
+                                dcc.Loading(
+                                    id="loading-filtered-graph",
+                                    type="circle",
+                                    children=dcc.Graph(id="filtered-graph"),
+                                )
+                            ),
+                        ]),
+                    ], md=6),
+                ], className="mb-4"),
+                
+                dbc.Row([
+                    dbc.Col([
+                        dbc.Card([
+                            dbc.CardHeader([
+                                html.I(className="fas fa-wave-square me-2"),
+                                "FFT分析"
+                            ], className="fw-bold"),
+                            dbc.CardBody(
+                                dcc.Loading(
+                                    id="loading-fft-graph",
+                                    type="circle",
+                                    children=dcc.Graph(id="fft-graph"),
+                                )
+                            ),
+                        ]),
+                    ], md=6),
+                ]),
+            ]),
+        ], className="mb-4"),
+
+        # ====== Card 2: Analysis Summary & Feature Table ======
+        dbc.Card([
+            dbc.CardHeader([
+                html.I(className="fas fa-info-circle me-2"),
+                "解析情報"
+            ], className="fw-bold"),
+            dbc.CardBody([
+                # Row with basic info
+                dbc.Row([
+                    dbc.Col([
+                        html.P([
+                            html.Strong("ファイル名: "),
+                            html.Span(id="analysis-file-name", className="ms-2")
+                        ]),
+                        html.P([
+                            html.Strong("オペレーター: "),
+                            html.Span(id="analysis-operator-id", className="ms-2")
+                        ]),
+                        html.P([
+                            html.Strong("ボールサイズ: "),
+                            html.Span(id="analysis-ball-size", className="ms-2")
+                        ]),
+                        html.P([
+                            html.Strong("Measurement Date: "),
+                            html.Span(id="analysis-measurement-date", className="ms-2")
+                        ]),
+                        html.P([
+                            html.Strong("Analysis Date: "),
+                            html.Span(id="analysis-analysis-date", className="ms-2")
+                        ]),
+                    ], md=6),
+
+                    dbc.Col([
+                        html.P([
+                            html.Strong("Size: "),
+                            html.Span(id="analysis-size", className="ms-2")
+                        ]),
+                        html.P([
+                            html.Strong("Number: "),
+                            html.Span(id="analysis-number", className="ms-2")
+                        ]),
+                        html.P([
+                            html.Strong("RPM: "),
+                            html.Span(id="analysis-rpm", className="ms-2")
+                        ]),
+
+                        # Big PASS / FAIL
+                        html.Div(
+                            id="analysis-result-big",
+                            style={"fontSize": "1.8em", "fontWeight": "bold"},
+                            className="mt-2"
+                        ),
+                        # Confidence
+                        html.Div(
+                            id="analysis-confidence",
+                            style={"fontSize": "1.2em"},
+                            className="text-muted",                         
+                        ),
+                        html.Div(
+                            "※信頼スコア: 0.0はNG、1.0はOK",
+                            style={"fontSize": "0.8em"},
+                            className="mt-2"
+                        ),
+                        html.Div(
+                            id="analysis-result",
+                            style={"fontSize": "0.6em"},
+                            className="mt-2"
+                        ),
+                    ], md=6),
+                ]),
+                
+                html.Hr(),
+
+                # The new feature table
+                html.H5("抽出された特徴量", className="mt-3"),
+                html.Div(
+                    id="features-table-2", 
+                    className="mb-4"
+                ),
             ]),
         ], className="mb-4"),
         
@@ -394,7 +461,7 @@ def get_tab2_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-arrow-left me-2"),
-                        " Back to File Selection"
+                        "ファイル選択に戻る"
                     ],
                     id="back-to-file-selection-btn",
                     color="secondary",
@@ -403,7 +470,7 @@ def get_tab2_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-file-csv me-2"),
-                        " Download CSV",
+                        "CSVをダウンロード",
                         dcc.Download(id="download-csv"),
                     ],
                     id="download-csv-btn",
@@ -412,7 +479,7 @@ def get_tab2_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-file-pdf ms-2"),
-                        " Download PDF",         
+                        "PDFをダウンロード",
                         dcc.Download(id="download-pdf"),
                     ],
                     id="download-pdf-btn",
@@ -421,7 +488,7 @@ def get_tab2_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-arrow-right me-2"),
-                        " Proceed to Labeling"
+                        "ラベリングに進む"
                     ],
                     id="proceed-labeling-btn",
                     color="success",
@@ -433,41 +500,55 @@ def get_tab2_content():
 
 def get_tab3_content():
     return dbc.Container([
-        html.H3("Step 3: Data Labeling", className="mb-4"),
+        html.H3("ステップ 3: データのラベリング", className="mb-4"),
         
         # File Summary Card
         dbc.Card([
             dbc.CardHeader([
                 html.I(className="fas fa-file-alt me-2"),
-                "Selected File Summary"
+                "選択されたファイルの概要"
             ], className="fw-bold"),
             dbc.CardBody([
                 dbc.Row([
                     dbc.Col([
                         html.P([
-                            html.Strong("File: "),
+                            html.Strong("ファイル: "),
                             html.Span(id="selected-file-name", style={"whiteSpace": "pre-wrap"})
                         ]),
                         html.P([
-                            html.Strong("Ball Size: "),
+                            html.Strong("ボールサイズ: "),
                             html.Span(id="selected-ball-size-name")
                         ]),
                         html.P([
-                            html.Strong("Operator: "),
+                            html.Strong("オペレーター: "),
                             html.Span(id="selected-operator-name")
                         ]),
                     ], md=6),
                     dbc.Col([
                         html.P([
-                            html.Strong("Analysis Result: "),
+                            html.Strong("スパイク分析結果: "),
                             html.Span(id="analysis-summary", className="fw-bold")
                         ]),
                         html.P([
-                            html.Strong("Model Prediction: "),
                             html.Span(id="model-prediction-summary", className="fw-bold")
                         ]),
                     ], md=6),
                 ]),
+            ]),
+        ], className="mb-4"),
+
+        # features Card
+        dbc.Card([
+            dbc.CardHeader([
+                html.I(className="fas fa-chart-bar me-2"),
+                "特徴量"
+            ], className="fw-bold"),
+            dbc.CardBody([
+                html.Div(
+                    id="tab-3-features",
+                    style={"whiteSpace": "pre-wrap"},
+                    className="mb-4"
+                ),
             ]),
         ], className="mb-4"),
         
@@ -475,31 +556,31 @@ def get_tab3_content():
         dbc.Card([
             dbc.CardHeader([
                 html.I(className="fas fa-tags me-2"),
-                "Assign Label"
+                "ラベルを割り当てる"
             ], className="fw-bold"),
             dbc.CardBody([
                 dbc.Row([
                     dbc.Col([
-                        html.Label("Select Label:", className="fw-bold mb-2"),
+                        html.Label("ラベルを選択:", className="fw-bold mb-2"),
                         dbc.RadioItems(
                             id="data-label-dropdown",
                             options=[
-                                {"label": "Pass", "value": "PASS"},
-                                {"label": "Fail", "value": "FAIL"},
-                                {"label": "Requires Inspection", "value": "REQUIRES_INSPECTION"},
+                                {"label": "合格", "value": "PASS"},
+                                {"label": "不合格", "value": "FAIL"},
+                                {"label": "検査が必要", "value": "REQUIRES_INSPECTION"},
                             ],
                             inline=True,
                             className="mb-3",
                         ),
-                        dbc.FormText("Choose the appropriate label based on your analysis"),
+                        dbc.FormText("分析に基づいて適切なラベルを選択してください"),
                     ], width=12),
                 ]),
                 dbc.Row([
                     dbc.Col([
-                        html.Label("Additional Notes:", className="fw-bold mb-2"),
+                        html.Label("追加のノート:", className="fw-bold mb-2"),
                         dbc.Textarea(
                             id="label-notes",
-                            placeholder="Enter any additional observations or notes...",
+                            placeholder="追加の観察やノートを入力してください...",
                             style={"height": "100px"},
                             className="mb-3",
                         ),
@@ -522,7 +603,7 @@ def get_tab3_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-arrow-left me-2"),
-                        "Back to Visualization"
+                        "可視化に戻る"
                     ],
                     id="back-to-visualization-btn",
                     color="secondary",
@@ -531,7 +612,7 @@ def get_tab3_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-save me-2"),
-                        "Save Label and Proceed"
+                        "ラベルを保存して進む"
                     ],
                     id="save-label-btn",
                     color="success",
@@ -543,20 +624,20 @@ def get_tab3_content():
 
 def get_tab4_content():
     return dbc.Container([
-        html.H3("Step 4: Review & Submit", className="mb-4"),
+        html.H3("ステップ 4: レビューと提出", className="mb-4"),
         
         # Summary Card
         dbc.Card([
             dbc.CardHeader([
                 html.I(className="fas fa-clipboard-list me-2"),
-                "Review Summary"
+                "レビュー概要"
             ], className="fw-bold"),
             dbc.CardBody([
                 dbc.Row([
                     dbc.Col([
                         html.H5([
                             html.I(className="fas fa-file me-2"),
-                            "Selected Files"
+                            "選択されたファイル"
                         ], className="mb-3"),
                         html.Div(
                             id="review-selected-files",
@@ -566,7 +647,7 @@ def get_tab4_content():
                     dbc.Col([
                         html.H5([
                             html.I(className="fas fa-tag me-2"),
-                            "Assigned Labels"
+                            "割り当てられたラベル"
                         ], className="mb-3"),
                         html.Div(
                             id="review-assigned-labels",
@@ -574,6 +655,11 @@ def get_tab4_content():
                         ),
                     ], md=6),
                 ]),
+                # review features
+                dbc.Row([
+                    html.H5("最終確認用特徴量", className="mb-4"),
+                    html.Div(id="features-table-4", className="mb-4"),
+                ])
             ]),
         ], className="mb-4"),
         
@@ -591,7 +677,7 @@ def get_tab4_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-arrow-left me-2"),
-                        "Back to Labeling"
+                        "ラベリングに戻る"
                     ],
                     id="back-to-labeling-btn",
                     color="secondary",
@@ -600,7 +686,7 @@ def get_tab4_content():
                 dbc.Button(
                     [
                         html.I(className="fas fa-check-circle me-2"),
-                        "Submit Labels"
+                        "ラベルを提出"
                     ],
                     id="submit-labels-btn",
                     color="success",
@@ -608,4 +694,86 @@ def get_tab4_content():
                 ),
             ], className="d-flex justify-content-between"),
         ]),
+    ])
+    
+def get_tab5_content():
+    return dbc.Container([
+        html.H3("ステップ 5: モデルのトレーニング (DBから)", className="mb-4"),
+
+        dbc.Alert(
+            id="db-training-status-alert",
+            is_open=False,
+            duration=None,
+            className="mb-4"
+        ),
+
+        dbc.Card([
+            dbc.CardHeader([
+                html.I(className="fas fa-database me-2"),
+                "DBラベルデータで学習"
+            ], className="fw-bold"),
+            dbc.CardBody([
+                html.P("『合格/不合格』とラベル付けされたDBデータを利用してモデルを学習します。"),
+
+                dbc.Row([
+                    dbc.Col([
+                        html.Label("モデルの名前:", className="fw-bold"),
+                        dbc.Input(
+                            id="training-model-name",
+                            type="text",
+                            placeholder="best_model_v1, MyLogistic2025, etc.",
+                            value="MyModel",
+                            className="mb-2",
+                        ),
+                        dbc.FormText("拡張子 .pkl は自動で付与されます。"),
+                    ], md=8),
+                    dbc.Col([
+                        dbc.Button(
+                            "モデルを再トレーニング",
+                            id="start-db-training-btn",
+                            color="primary",
+                            className="mt-4",
+                            n_clicks=0
+                        )
+                    ], md=4, className="d-flex align-items-end"),
+                ]),
+
+                html.Hr(),
+
+                html.Div(
+                    id="db-training-log",
+                    style={
+                        "whiteSpace": "pre-wrap",
+                        "fontSize": "0.9em",
+                        "backgroundColor": "#222",
+                        "color": "white",
+                        "padding": "10px",
+                        "borderRadius": "5px",
+                        "minHeight": "200px"
+                    }
+                ),
+            ]),
+        ], className="mb-4"),
+        
+        html.Hr(),
+        html.H4("DBに保存されているMeasurementsを参照・編集", className="mt-4"),
+
+        dbc.Button("テーブルをリフレッシュ", id="refresh-db-table-btn", color="info", className="mb-2"),
+        dash_table.DataTable(
+            id="db-review-table",
+            columns=[],
+            data=[],
+            editable=True,  # let user edit cells
+            row_selectable="multi",
+            selected_rows=[],
+            style_table={"overflowX": "auto"},
+            style_cell={"minWidth": "120px", "width": "120px", "maxWidth": "250px"},
+        ),
+        dbc.Button(
+            "選択行を削除",
+            id="delete-selected-rows-btn",
+            color="danger",
+            className="mt-2"
+        ),
+        html.Div(id="db-review-output", className="mt-3 text-info"),
     ])
