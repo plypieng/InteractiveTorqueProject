@@ -3099,3 +3099,43 @@
 2025-01-09 12:47:09,223 DEBUG:platform is win32
 2025-01-09 12:47:09,369 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
 2025-01-09 12:47:09,377 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v330.json
+2025-01-09 12:47:16,044 INFO:Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-01-09 12:47:16,045 INFO:NumExpr defaulting to 8 threads.
+2025-01-09 12:47:17,362 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-09 12:47:17,366 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:17,367 DEBUG:interactive is False
+2025-01-09 12:47:17,368 DEBUG:platform is win32
+2025-01-09 12:47:17,428 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:17,431 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v330.json
+2025-01-09 12:47:34,156 INFO:Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-01-09 12:47:34,156 INFO:NumExpr defaulting to 8 threads.
+2025-01-09 12:47:35,210 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-09 12:47:35,215 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:35,218 DEBUG:interactive is False
+2025-01-09 12:47:35,218 DEBUG:platform is win32
+2025-01-09 12:47:35,282 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:35,285 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v330.json
+2025-01-09 12:47:39,234 INFO:Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-01-09 12:47:39,235 INFO:NumExpr defaulting to 8 threads.
+2025-01-09 12:47:40,074 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-09 12:47:40,078 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:40,079 DEBUG:interactive is False
+2025-01-09 12:47:40,080 DEBUG:platform is win32
+2025-01-09 12:47:40,134 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:40,138 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v330.json
+2025-01-09 12:47:44,242 INFO:Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-01-09 12:47:44,243 INFO:NumExpr defaulting to 8 threads.
+2025-01-09 12:47:45,124 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-09 12:47:45,128 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:45,130 DEBUG:interactive is False
+2025-01-09 12:47:45,130 DEBUG:platform is win32
+2025-01-09 12:47:45,190 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:45,193 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v330.json
+2025-01-09 12:47:49,589 INFO:Note: NumExpr detected 12 cores but "NUMEXPR_MAX_THREADS" not set, so enforcing safe limit of 8.
+2025-01-09 12:47:49,590 INFO:NumExpr defaulting to 8 threads.
+2025-01-09 12:47:50,654 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-09 12:47:50,659 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:50,661 DEBUG:interactive is False
+2025-01-09 12:47:50,662 DEBUG:platform is win32
+2025-01-09 12:47:50,717 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-09 12:47:50,720 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v330.json
