@@ -12,4 +12,7 @@ class Config:
     DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///torque_data.db')
     CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
     CELERY_BACKEND_URL = os.getenv('CELERY_BACKEND_URL', 'redis://localhost:6379/0')
+    APP_MODE = os.getenv('APP_MODE', 'operator')
     # Add more config parameters as needed
+    
+

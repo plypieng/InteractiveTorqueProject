@@ -1,6 +1,7 @@
 # app/ui/components.py
 from dash import html, dcc, dash_table
 import dash_bootstrap_components as dbc
+from ..config import Config
 
 
 def get_loading_overlay():
@@ -203,6 +204,8 @@ def get_tab1_content():
     ])
 
 def get_tab2_content():
+    hidden_mode = {"display": "none"} if Config.APP_MODE == "operator" else {}
+    
     return dbc.Container([
         html.H3("ステップ 2: データの可視化", className="mb-4"),
         
@@ -233,9 +236,10 @@ def get_tab2_content():
                 html.I(className="fas fa-sliders-h me-2"),
                 "グラフ表示"
             ], className="fw-bold"),
+            
             dbc.CardBody([
                 # Parameter inputs row is optional—moved if you like
-                dbc.Row([
+                dbc.Row(style=hidden_mode, children=[
                     dbc.Col([
                         html.Label("ハイパスフィルターカットオフ周波数（Hz）:", className="fw-bold"),
                         dbc.InputGroup([
@@ -277,7 +281,7 @@ def get_tab2_content():
                     ], md=4),
                 ], className="mb-3"),
                 
-                dbc.Row([
+                dbc.Row(style=hidden_mode, children=[
                     dbc.Col([
                         html.Label("スパイクしきい値:", className="fw-bold"),
                         dbc.Input(
@@ -319,6 +323,8 @@ def get_tab2_content():
                     ], md=4),
                 ]),
 
+                
+                
                 # Graphs
                 dbc.Row([
                     dbc.Col([
@@ -447,10 +453,12 @@ def get_tab2_content():
                 html.Hr(),
 
                 # The new feature table
-                html.H5("抽出された特徴量", className="mt-3"),
+                html.H5("抽出された特徴量", className="mt-3", style=hidden_mode),
+                
                 html.Div(
                     id="features-table-2", 
-                    className="mb-4"
+                    className="mb-4",
+                    style=hidden_mode
                 ),
             ]),
         ], className="mb-4"),
@@ -538,7 +546,7 @@ def get_tab3_content():
         ], className="mb-4"),
 
         # features Card
-        dbc.Card([
+        dbc.Card(style={"display": "none"}, children=[
             dbc.CardHeader([
                 html.I(className="fas fa-chart-bar me-2"),
                 "特徴量"
@@ -697,6 +705,7 @@ def get_tab4_content():
     ])
     
 def get_tab5_content():
+    hidden_mode = {"display": "none"} if Config.APP_MODE == "operator" else {}
     return dbc.Container([
         html.H3("ステップ 5: モデルのトレーニング (DBから)", className="mb-4"),
 
@@ -706,8 +715,10 @@ def get_tab5_content():
             duration=None,
             className="mb-4"
         ),
+        
+        
 
-        dbc.Card([
+        dbc.Card(style=hidden_mode, children=[
             dbc.CardHeader([
                 html.I(className="fas fa-database me-2"),
                 "DBラベルデータで学習"
@@ -766,8 +777,17 @@ def get_tab5_content():
             editable=True,  # let user edit cells
             row_selectable="multi",
             selected_rows=[],
-            style_table={"overflowX": "auto"},
-            style_cell={"minWidth": "120px", "width": "120px", "maxWidth": "250px"},
+            style_table={"overflowX": "auto", 
+                         "backgroundColor": "#222"},
+            style_header={"fontWeight": "bold", 
+                          "backgroundColor": "#333", 
+                          "color": "white"},
+            style_cell={"textAlign": "center",
+                        "backgroundColor": "#444",
+                        "color": "white",
+                        "minWidth": "120px", 
+                        "width": "120px", 
+                        "maxWidth": "250px"},
         ),
         dbc.Button(
             "選択行を削除",
