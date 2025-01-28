@@ -5,8 +5,6 @@ from ..processing.filters import high_pass_filter
 from ..processing.feature_extraction import extract_features, calculate_rms
 
 from ..plots.plot_factory import create_normal_plot, create_filtered_plot, create_fft_plot
-from ..database.session import SessionLocal
-from ..database.models import Measurement, BallSize
 import plotly.graph_objs as go
 import pandas as pd
 import logging
@@ -96,6 +94,7 @@ def register_data_visualization_callbacks(app):
             Output("analysis-rpm", "children"),
             Output("analysis-result-big", "children"),
             Output("analysis-confidence", "children"),
+            Output("analysis-model-info", "children"),
         ],
         [
             Input("selected-file-1", "data"),
@@ -307,6 +306,7 @@ def register_data_visualization_callbacks(app):
                     
                     prediction_label = "◎OK" if prediction == 1 else "✖NG"
                     model_prediction_text = f"Model Prediction: {prediction_label} (Confidence: {probability:.2f})"
+                    model_info_text = f"Model version: {chosen_model}"
                     
                     # Override the big_result if you prefer the model's result
                     big_result = f"AI判断結果: {prediction_label}"    
@@ -316,6 +316,7 @@ def register_data_visualization_callbacks(app):
             except Exception as e:
                 logging.error(f"Error in model prediction: {e}")
                 model_prediction_text = "Error in model prediction or Model not loaded"
+                model_info_text = "Model not loaded"
 
         except Exception as e:
             error_msg = f"Error processing file: {str(e)}"
@@ -376,6 +377,7 @@ def register_data_visualization_callbacks(app):
             rpm_display,
             big_result,
             confidence_display,
+            model_info_text,
         )
     
     @app.callback(
@@ -475,6 +477,7 @@ def process_file(
         # Create figures
         normal_fig = create_normal_plot(x, y, y_axis_range)
         filtered_fig = create_filtered_plot(x, y_filtered, filtered_rms, moving_max_avg, moving_min_avg, cutoff_freq, [-1,1])
+
         
         from ..processing.feature_extraction import calculate_fft
         xf, amplitudes = calculate_fft(y.to_numpy(), fs=100.0)

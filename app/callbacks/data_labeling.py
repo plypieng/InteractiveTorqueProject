@@ -1,11 +1,8 @@
 # app/callbacks/data_labeling.py
 from dash import Input, Output, State, no_update, callback_context
-import dash_bootstrap_components as dbc
 from ..database.session import SessionLocal
 from ..database.models import Measurement
 import pandas as pd
-import logging
-import html
 from dash.exceptions import PreventUpdate
 
 def register_data_labeling_callbacks(app):
