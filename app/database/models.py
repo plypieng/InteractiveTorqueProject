@@ -1,7 +1,8 @@
 # app/database/models.py
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Text
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, DateTime, Text, UniqueConstraint
 from sqlalchemy.orm import relationship
 from .session import Base
+import datetime
 
 # 1) Define Feature first (or at least above Measurement)
 class Feature(Base):
@@ -31,18 +32,30 @@ class Measurement(Base):
     id = Column(Integer, primary_key=True)
 
     # Basic fields
-    file_path = Column(String, unique=True, nullable=False)
+    file_path = Column(String, nullable=False)
     operator_id = Column(String, nullable=False)
     ball_size_id = Column(Integer, ForeignKey('ball_sizes.id'))
-    timestamp = Column(DateTime, nullable=False)
+    
+    measurement_time = Column(DateTime, nullable=False)
+    analysis_time = Column(DateTime, nullable=False)
+    submitted_timestamp = Column(DateTime, nullable=False)
+    
+    
     status = Column(String, default='Pending')
 
     label = Column(String, nullable=True)
     notes = Column(Text, nullable=True)
     
-    # >>> NEW COLUMNS <<<
+    # >>> NEW COLUMNS <<< about model prediction 
     predicted_label = Column(String, nullable=True)
     prediction_confidence = Column(Float, nullable=True)
+    model_version = Column(String, nullable=True)
+    
+    # Add composite unique constraint
+    __table_args__ = (
+        UniqueConstraint('file_path', 'model_version', name='unique_file_model'),
+    )
+
 
     # Relationship to BallSize
     ball_size = relationship("BallSize", back_populates="measurements")

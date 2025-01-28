@@ -1,6 +1,5 @@
 # app/callbacks/navigation.py
-from dash import Input, Output, State, callback
-import dash_bootstrap_components as dbc
+from dash import Input, Output, State
 
 def register_navigation_callbacks(app):
     @app.callback(

@@ -12,3 +12,5 @@ celery
 redis
 scikit-learn
 matplotlib
+alembic
+

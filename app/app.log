@@ -10598,3 +10598,608 @@ Feature names unseen at fit time:
 2025-01-27 13:22:38,249 DEBUG:platform is win32
 2025-01-27 13:22:38,343 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
 2025-01-27 13:22:38,350 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:22:53,319 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:22:53,327 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:22:53,329 DEBUG:interactive is False
+2025-01-27 13:22:53,330 DEBUG:platform is win32
+2025-01-27 13:22:53,420 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:22:53,426 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:24:16,005 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:24:16,013 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:24:16,016 DEBUG:interactive is False
+2025-01-27 13:24:16,016 DEBUG:platform is win32
+2025-01-27 13:24:16,117 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:24:16,124 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:24:39,403 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:24:39,411 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:24:39,413 DEBUG:interactive is False
+2025-01-27 13:24:39,414 DEBUG:platform is win32
+2025-01-27 13:24:39,506 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:24:39,512 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:24:48,569 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:24:48,582 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:24:48,586 DEBUG:interactive is False
+2025-01-27 13:24:48,587 DEBUG:platform is win32
+2025-01-27 13:24:48,696 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:24:48,702 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:25:06,343 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:25:06,351 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:25:06,354 DEBUG:interactive is False
+2025-01-27 13:25:06,354 DEBUG:platform is win32
+2025-01-27 13:25:06,443 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:25:06,450 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:25:17,245 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:25:17,253 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:25:17,255 DEBUG:interactive is False
+2025-01-27 13:25:17,256 DEBUG:platform is win32
+2025-01-27 13:25:17,355 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:25:17,361 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:25:32,204 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:25:32,212 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:25:32,214 DEBUG:interactive is False
+2025-01-27 13:25:32,215 DEBUG:platform is win32
+2025-01-27 13:25:32,303 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:25:32,309 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:26:15,983 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:26:15,996 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:26:15,998 DEBUG:interactive is False
+2025-01-27 13:26:15,999 DEBUG:platform is win32
+2025-01-27 13:26:16,087 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:26:16,093 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:26:34,585 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:26:34,603 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:26:34,606 DEBUG:interactive is False
+2025-01-27 13:26:34,607 DEBUG:platform is win32
+2025-01-27 13:26:34,776 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:26:34,783 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:28:07,073 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:28:07,081 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:28:07,083 DEBUG:interactive is False
+2025-01-27 13:28:07,084 DEBUG:platform is win32
+2025-01-27 13:28:07,261 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:28:07,272 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:29:26,223 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:29:26,233 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:29:26,236 DEBUG:interactive is False
+2025-01-27 13:29:26,237 DEBUG:platform is win32
+2025-01-27 13:29:26,353 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:29:26,361 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:29:39,509 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:29:39,521 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:29:39,524 DEBUG:interactive is False
+2025-01-27 13:29:39,525 DEBUG:platform is win32
+2025-01-27 13:29:39,657 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:29:39,665 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:29:57,455 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:29:57,463 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:29:57,465 DEBUG:interactive is False
+2025-01-27 13:29:57,466 DEBUG:platform is win32
+2025-01-27 13:29:57,558 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:29:57,564 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:30:14,879 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:30:14,887 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:30:14,890 DEBUG:interactive is False
+2025-01-27 13:30:14,891 DEBUG:platform is win32
+2025-01-27 13:30:14,995 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:30:15,002 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 13:30:29,860 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 13:30:29,868 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:30:29,871 DEBUG:interactive is False
+2025-01-27 13:30:29,872 DEBUG:platform is win32
+2025-01-27 13:30:29,970 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 13:30:29,976 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-27 14:08:32,904 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-27 14:08:33,088 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-27 14:08:55,391 INFO:Switching to labeling tab
+2025-01-27 14:09:07,818 INFO:Switching to labeling tab
+2025-01-27 14:09:07,855 DEBUG:open file: W://20250110145768_1505_XXX0018_20rpm (Ball+14.2 Spacer).csv
+2025-01-27 14:09:08,026 DEBUG:open file: W://20250110145768_1505_XXX0018_20rpm (Ball+14.2 Spacer).csv
+2025-01-27 14:09:39,306 INFO:Switching to labeling tab
+2025-01-27 14:09:39,309 DEBUG:open file: W://20250110145767_1505_XXX0017_20rpm.csv
+2025-01-27 14:09:39,445 DEBUG:open file: W://20250110145767_1505_XXX0017_20rpm.csv
+2025-01-27 14:10:04,519 INFO:Switching to labeling tab
+2025-01-27 14:10:04,533 DEBUG:open file: W://20250110145768_1505_XXX0018_20rpm (Ball+14.2 Spacer).csv
+2025-01-27 14:10:04,634 DEBUG:open file: W://20250110145768_1505_XXX0018_20rpm (Ball+14.2 Spacer).csv
+2025-01-27 14:10:08,072 INFO:Switching to labeling tab
+2025-01-27 14:10:08,091 DEBUG:open file: W://20250110145768_1505_XXX0018_20rpm (Ball+14.2 Spacer).csv
+2025-01-27 14:10:08,409 DEBUG:open file: W://20250110145768_1505_XXX0018_20rpm (Ball+14.2 Spacer).csv
+2025-01-27 16:05:38,729 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-27 16:05:38,756 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 16:05:38,759 DEBUG:interactive is False
+2025-01-27 16:05:38,760 DEBUG:platform is win32
+2025-01-27 16:05:38,956 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-27 16:05:38,966 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:04:18,827 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:04:18,840 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:04:18,843 DEBUG:interactive is False
+2025-01-28 09:04:18,844 DEBUG:platform is win32
+2025-01-28 09:04:19,066 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:04:19,072 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:04:20,934 INFO:Dash is running on http://127.0.0.1:8050/
+
+2025-01-28 09:04:27,305 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:04:27,314 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:04:27,317 DEBUG:interactive is False
+2025-01-28 09:04:27,319 DEBUG:platform is win32
+2025-01-28 09:04:27,432 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:04:27,439 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:04:46,728 DEBUG:open file: W://20250110145760_1505_XXX0010_20rpm.csv
+2025-01-28 09:04:46,825 DEBUG:open file: W://20250110145760_1505_XXX0010_20rpm.csv
+2025-01-28 09:05:14,951 INFO:Switching to labeling tab
+2025-01-28 09:15:15,259 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:15:15,269 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:15:15,272 DEBUG:interactive is False
+2025-01-28 09:15:15,275 DEBUG:platform is win32
+2025-01-28 09:15:15,450 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:15:15,457 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:20:49,507 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:20:49,516 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:20:49,518 DEBUG:interactive is False
+2025-01-28 09:20:49,519 DEBUG:platform is win32
+2025-01-28 09:20:49,644 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:20:49,662 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:23:16,340 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:23:16,348 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:23:16,350 DEBUG:interactive is False
+2025-01-28 09:23:16,351 DEBUG:platform is win32
+2025-01-28 09:23:16,440 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:23:16,484 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:24:39,600 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:24:39,608 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:24:39,610 DEBUG:interactive is False
+2025-01-28 09:24:39,611 DEBUG:platform is win32
+2025-01-28 09:24:39,700 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:24:39,706 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:52:52,458 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:52:52,467 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:52:52,469 DEBUG:interactive is False
+2025-01-28 09:52:52,470 DEBUG:platform is win32
+2025-01-28 09:52:52,564 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:52:52,570 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:52:53,578 INFO:Dash is running on http://127.0.0.1:8050/
+
+2025-01-28 09:52:59,456 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:52:59,464 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:52:59,467 DEBUG:interactive is False
+2025-01-28 09:52:59,467 DEBUG:platform is win32
+2025-01-28 09:52:59,561 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:52:59,567 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:55:06,893 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:55:06,907 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:55:06,911 DEBUG:interactive is False
+2025-01-28 09:55:06,914 DEBUG:platform is win32
+2025-01-28 09:55:07,040 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:55:07,047 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 09:56:20,609 DEBUG:open file: W://20250110145766_1505_XXX0016_20rpm OK.csv
+2025-01-28 09:56:20,790 DEBUG:open file: W://20250110145766_1505_XXX0016_20rpm OK.csv
+2025-01-28 09:57:10,334 INFO:Switching to labeling tab
+2025-01-28 09:57:19,247 ERROR:Error finalizing submission: (builtins.TypeError) SQLite DateTime type only accepts Python datetime and date objects as input.
+[SQL: INSERT INTO measurements (file_path, operator_id, ball_size_id, measurement_time, analysis_time, submitted_timestamp, status, label, notes, predicted_label, prediction_confidence, model_version, mean, median, mad, standard_deviation, rms, shape_factor, crest_factor, entropy, skewness, kurtosis, gradient_mean, gradient_std_dev, rolling_median_mean, rolling_mad_mean, spectral_centroid, spectral_entropy, peak_frequency, spectral_flatness, spectral_spread, spectral_roll_off, low_band_energy, mid_band_energy, high_band_energy, spectral_crest, spectral_flux, spectral_kurtosis, spectral_skewness, spectral_slope) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: [{'submitted_timestamp': Timestamp('2025-01-28 09:57:19.243834'), 'model_version': 'best_model_rfecv2.pkl', 'status': 'submitted', 'analysis_time': '20 ... (746 characters truncated) ... ': None, 'spectral_crest': None, 'shape_factor': None, 'rms': None, 'label': None, 'spectral_entropy': None, 'spectral_flatness': None, 'notes': None}]]
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\default.py", line 1476, in _init_compiled
+    flattened_processors[key](compiled_params[key])
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 1068, in process
+    raise TypeError(
+TypeError: SQLite DateTime type only accepts Python datetime and date objects as input.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\Documents\ply\InteractiveTorqueProjectv2\app\callbacks\review_submission.py", line 166, in finalize_submission
+    session.flush()
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 4352, in flush
+    self._flush(objects)
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 4487, in _flush
+    with util.safe_reraise():
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 146, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\session.py", line 4448, in _flush
+    flush_context.execute()
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\orm\persistence.py", line 1233, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1418, in execute
+    return meth(
+           ^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1640, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1821, in _execute_context
+    self._handle_dbapi_exception(
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\base.py", line 1815, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\engine\default.py", line 1476, in _init_compiled
+    flattened_processors[key](compiled_params[key])
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\sqlalchemy\dialects\sqlite\base.py", line 1068, in process
+    raise TypeError(
+sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite DateTime type only accepts Python datetime and date objects as input.
+[SQL: INSERT INTO measurements (file_path, operator_id, ball_size_id, measurement_time, analysis_time, submitted_timestamp, status, label, notes, predicted_label, prediction_confidence, model_version, mean, median, mad, standard_deviation, rms, shape_factor, crest_factor, entropy, skewness, kurtosis, gradient_mean, gradient_std_dev, rolling_median_mean, rolling_mad_mean, spectral_centroid, spectral_entropy, peak_frequency, spectral_flatness, spectral_spread, spectral_roll_off, low_band_energy, mid_band_energy, high_band_energy, spectral_crest, spectral_flux, spectral_kurtosis, spectral_skewness, spectral_slope) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)]
+[parameters: [{'submitted_timestamp': Timestamp('2025-01-28 09:57:19.243834'), 'model_version': 'best_model_rfecv2.pkl', 'status': 'submitted', 'analysis_time': '20 ... (746 characters truncated) ... ': None, 'spectral_crest': None, 'shape_factor': None, 'rms': None, 'label': None, 'spectral_entropy': None, 'spectral_flatness': None, 'notes': None}]]
+2025-01-28 09:57:25,820 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 09:57:25,828 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:57:25,831 DEBUG:interactive is False
+2025-01-28 09:57:25,831 DEBUG:platform is win32
+2025-01-28 09:57:25,919 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 09:57:25,925 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:00:15,890 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:00:15,899 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:00:15,902 DEBUG:interactive is False
+2025-01-28 10:00:15,902 DEBUG:platform is win32
+2025-01-28 10:00:15,989 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:00:15,996 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:00:43,571 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:00:43,579 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:00:43,582 DEBUG:interactive is False
+2025-01-28 10:00:43,583 DEBUG:platform is win32
+2025-01-28 10:00:43,673 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:00:43,679 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:01:29,973 DEBUG:open file: W://20250115140405_1505_XXX0049_20rpm OK.csv
+2025-01-28 10:01:30,031 DEBUG:open file: W://20250115140405_1505_XXX0049_20rpm OK.csv
+2025-01-28 10:01:59,421 INFO:Switching to labeling tab
+2025-01-28 10:02:56,138 INFO:Switching to labeling tab
+2025-01-28 10:02:56,145 DEBUG:open file: W://20241101170417_1505_XXX0008_20rpm.csv
+2025-01-28 10:02:56,234 DEBUG:open file: W://20241101170417_1505_XXX0008_20rpm.csv
+2025-01-28 10:03:10,744 INFO:Switching to labeling tab
+2025-01-28 10:03:39,179 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:03:39,187 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:03:39,189 DEBUG:interactive is False
+2025-01-28 10:03:39,190 DEBUG:platform is win32
+2025-01-28 10:03:39,276 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:03:39,282 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:23:40,810 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:23:40,818 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:23:40,821 DEBUG:interactive is False
+2025-01-28 10:23:40,821 DEBUG:platform is win32
+2025-01-28 10:23:40,920 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:23:40,926 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:33:39,434 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:33:39,442 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:33:39,444 DEBUG:interactive is False
+2025-01-28 10:33:39,445 DEBUG:platform is win32
+2025-01-28 10:33:39,530 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:33:39,535 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:43:02,001 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:43:02,009 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:43:02,012 DEBUG:interactive is False
+2025-01-28 10:43:02,012 DEBUG:platform is win32
+2025-01-28 10:43:02,132 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:43:02,139 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:43:19,722 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:43:19,731 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:43:19,733 DEBUG:interactive is False
+2025-01-28 10:43:19,734 DEBUG:platform is win32
+2025-01-28 10:43:19,840 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:43:19,853 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:43:41,013 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:43:41,022 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:43:41,024 DEBUG:interactive is False
+2025-01-28 10:43:41,025 DEBUG:platform is win32
+2025-01-28 10:43:41,141 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:43:41,148 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 10:53:40,326 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 10:53:40,334 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:53:40,337 DEBUG:interactive is False
+2025-01-28 10:53:40,337 DEBUG:platform is win32
+2025-01-28 10:53:40,431 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 10:53:40,438 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:03:40,814 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:03:40,822 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:03:40,824 DEBUG:interactive is False
+2025-01-28 11:03:40,825 DEBUG:platform is win32
+2025-01-28 11:03:40,922 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:03:40,929 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:06:18,405 DEBUG:open file: W://20250110145766_1505_XXX0016_20rpm OK.csv
+2025-01-28 11:06:18,480 DEBUG:open file: W://20250110145766_1505_XXX0016_20rpm OK.csv
+2025-01-28 11:08:50,694 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:08:50,702 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:08:50,707 DEBUG:interactive is False
+2025-01-28 11:08:50,708 DEBUG:platform is win32
+2025-01-28 11:08:50,882 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:08:50,890 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:16:10,015 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-28 11:16:10,100 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-28 11:17:46,916 DEBUG:open file: W://20250110145765_1505_XXX0015_20rpm.csv
+2025-01-28 11:17:46,984 DEBUG:open file: W://20250110145765_1505_XXX0015_20rpm.csv
+2025-01-28 11:18:21,019 INFO:Switching to file selection tab
+2025-01-28 11:18:24,621 DEBUG:open file: W://20250110145763_1505_XXX0013_20rpm Just the right ball None.csv
+2025-01-28 11:18:24,695 DEBUG:open file: W://20250110145763_1505_XXX0013_20rpm Just the right ball None.csv
+2025-01-28 11:18:39,087 INFO:Switching to file selection tab
+2025-01-28 11:18:54,791 DEBUG:open file: W://20250115140405_1505_XXX0049_20rpm OK.csv
+2025-01-28 11:18:54,852 DEBUG:open file: W://20250115140405_1505_XXX0049_20rpm OK.csv
+2025-01-28 11:19:16,405 DEBUG:open file: W://20250115113945_1505_XXX0043_20rpm.csv
+2025-01-28 11:19:16,473 DEBUG:open file: W://20250115113945_1505_XXX0043_20rpm.csv
+2025-01-28 11:19:36,967 DEBUG:open file: W://20250115131107_1505_XXX0047_20rpm Just the right ball None.csv
+2025-01-28 11:19:37,108 DEBUG:open file: W://20250115131107_1505_XXX0047_20rpm Just the right ball None.csv
+2025-01-28 11:20:04,972 INFO:Switching to file selection tab
+2025-01-28 11:20:09,765 DEBUG:open file: W://20250115110224_1505_XXX0041_20rpm OK.csv
+2025-01-28 11:20:09,854 DEBUG:open file: W://20250115110224_1505_XXX0041_20rpm OK.csv
+2025-01-28 11:20:46,306 DEBUG:open file: W://20241024162142_1505_XXX0002_20rpm ok.csv
+2025-01-28 11:20:46,393 DEBUG:open file: W://20241024162142_1505_XXX0002_20rpm ok.csv
+2025-01-28 11:20:49,085 DEBUG:open file: W://20241028141833_1505_XXX0005_20rpm.csv
+2025-01-28 11:20:49,209 DEBUG:open file: W://20241028141833_1505_XXX0005_20rpm.csv
+2025-01-28 11:21:21,985 INFO:Switching to file selection tab
+2025-01-28 11:21:32,234 DEBUG:open file: W://20241028141833_1505_XXX0005_20rpm.csv
+2025-01-28 11:21:32,296 DEBUG:open file: W://20241028141833_1505_XXX0005_20rpm.csv
+2025-01-28 11:21:37,722 DEBUG:open file: W://20250110145767_1505_XXX0017_20rpm.csv
+2025-01-28 11:21:37,808 DEBUG:open file: W://20250110145767_1505_XXX0017_20rpm.csv
+2025-01-28 11:22:08,058 INFO:Switching to labeling tab
+2025-01-28 11:23:36,819 ERROR:Error finalizing submission: second must be in 0..59: 20250110145767, at position 0
+Traceback (most recent call last):
+  File "parsing.pyx", line 684, in pandas._libs.tslibs.parsing.dateutil_parse
+ValueError: second must be in 0..59
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\Documents\ply\InteractiveTorqueProjectv2\app\callbacks\review_submission.py", line 157, in finalize_submission
+    measurement_time = pd.to_datetime(features_data.get("Measurement date"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\tools\datetimes.py", line 1101, in to_datetime
+    result = convert_listlike(np.array([arg]), format)[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\tools\datetimes.py", line 435, in _convert_listlike_datetimes
+    result, tz_parsed = objects_to_datetime64(
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\arrays\datetimes.py", line 2398, in objects_to_datetime64
+    result, tz_parsed = tslib.array_to_datetime(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tslib.pyx", line 414, in pandas._libs.tslib.array_to_datetime
+  File "tslib.pyx", line 596, in pandas._libs.tslib.array_to_datetime
+  File "tslib.pyx", line 553, in pandas._libs.tslib.array_to_datetime
+  File "conversion.pyx", line 641, in pandas._libs.tslibs.conversion.convert_str_to_tsobject
+  File "parsing.pyx", line 336, in pandas._libs.tslibs.parsing.parse_datetime_string
+  File "parsing.pyx", line 688, in pandas._libs.tslibs.parsing.dateutil_parse
+pandas._libs.tslibs.parsing.DateParseError: second must be in 0..59: 20250110145767, at position 0
+2025-01-28 11:23:44,555 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:23:44,564 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:23:44,567 DEBUG:interactive is False
+2025-01-28 11:23:44,567 DEBUG:platform is win32
+2025-01-28 11:23:44,668 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:23:44,675 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:24:57,421 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:24:57,429 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:24:57,431 DEBUG:interactive is False
+2025-01-28 11:24:57,432 DEBUG:platform is win32
+2025-01-28 11:24:57,525 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:24:57,532 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:25:12,021 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:25:12,030 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:25:12,033 DEBUG:interactive is False
+2025-01-28 11:25:12,034 DEBUG:platform is win32
+2025-01-28 11:25:12,137 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:25:12,144 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:25:29,227 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:25:29,235 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:25:29,237 DEBUG:interactive is False
+2025-01-28 11:25:29,238 DEBUG:platform is win32
+2025-01-28 11:25:29,332 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:25:29,338 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:25:47,668 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-28 11:25:47,736 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-28 11:25:59,963 INFO:Switching to labeling tab
+2025-01-28 11:26:07,662 INFO:Switching to labeling tab
+2025-01-28 11:26:19,274 ERROR:Error finalizing submission: second must be in 0..59: 20250110145764, at position 0
+Traceback (most recent call last):
+  File "parsing.pyx", line 684, in pandas._libs.tslibs.parsing.dateutil_parse
+ValueError: second must be in 0..59
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chimpaleenantaphon\Documents\ply\InteractiveTorqueProjectv2\app\callbacks\review_submission.py", line 157, in finalize_submission
+    measurement_time = pd.to_datetime(features_data.get("Measurement date"))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\tools\datetimes.py", line 1101, in to_datetime
+    result = convert_listlike(np.array([arg]), format)[0]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\tools\datetimes.py", line 435, in _convert_listlike_datetimes
+    result, tz_parsed = objects_to_datetime64(
+                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\pandas\core\arrays\datetimes.py", line 2398, in objects_to_datetime64
+    result, tz_parsed = tslib.array_to_datetime(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "tslib.pyx", line 414, in pandas._libs.tslib.array_to_datetime
+  File "tslib.pyx", line 596, in pandas._libs.tslib.array_to_datetime
+  File "tslib.pyx", line 553, in pandas._libs.tslib.array_to_datetime
+  File "conversion.pyx", line 641, in pandas._libs.tslibs.conversion.convert_str_to_tsobject
+  File "parsing.pyx", line 336, in pandas._libs.tslibs.parsing.parse_datetime_string
+  File "parsing.pyx", line 688, in pandas._libs.tslibs.parsing.dateutil_parse
+pandas._libs.tslibs.parsing.DateParseError: second must be in 0..59: 20250110145764, at position 0
+2025-01-28 11:30:16,404 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:30:16,413 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:30:16,415 DEBUG:interactive is False
+2025-01-28 11:30:16,416 DEBUG:platform is win32
+2025-01-28 11:30:16,520 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:30:16,528 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:30:43,185 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-28 11:30:43,261 DEBUG:open file: W://20250110145764_1505_XXX0014_20rpm OK.csv
+2025-01-28 11:30:56,273 INFO:Switching to labeling tab
+2025-01-28 11:31:02,267 ERROR:Error parsing measurement time 20250110145764: second must be in 0..59
+2025-01-28 11:32:26,215 INFO:Switching to labeling tab
+2025-01-28 11:32:26,223 DEBUG:open file: W://20241028144319_1505_XXX0006_20rpm.csv
+2025-01-28 11:32:26,332 DEBUG:open file: W://20241028144319_1505_XXX0006_20rpm.csv
+2025-01-28 11:32:50,541 INFO:Switching to labeling tab
+2025-01-28 11:33:40,556 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:33:40,564 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:33:40,567 DEBUG:interactive is False
+2025-01-28 11:33:40,570 DEBUG:platform is win32
+2025-01-28 11:33:40,668 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:33:40,676 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:35:04,623 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:35:04,632 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:35:04,635 DEBUG:interactive is False
+2025-01-28 11:35:04,635 DEBUG:platform is win32
+2025-01-28 11:35:04,734 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:35:04,742 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:36:54,272 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:36:54,281 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:36:54,283 DEBUG:interactive is False
+2025-01-28 11:36:54,284 DEBUG:platform is win32
+2025-01-28 11:36:54,384 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:36:54,391 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:40:17,244 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:40:17,252 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:40:17,255 DEBUG:interactive is False
+2025-01-28 11:40:17,255 DEBUG:platform is win32
+2025-01-28 11:40:17,348 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:40:17,354 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:41:41,394 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:41:41,402 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:41:41,405 DEBUG:interactive is False
+2025-01-28 11:41:41,406 DEBUG:platform is win32
+2025-01-28 11:41:41,496 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:41:41,502 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:43:39,166 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:43:39,174 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:43:39,177 DEBUG:interactive is False
+2025-01-28 11:43:39,178 DEBUG:platform is win32
+2025-01-28 11:43:39,275 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:43:39,282 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:45:58,503 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:45:58,511 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:45:58,513 DEBUG:interactive is False
+2025-01-28 11:45:58,514 DEBUG:platform is win32
+2025-01-28 11:45:58,613 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:45:58,619 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:47:17,779 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:47:17,787 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:47:17,790 DEBUG:interactive is False
+2025-01-28 11:47:17,791 DEBUG:platform is win32
+2025-01-28 11:47:17,886 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:47:17,892 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:48:21,737 DEBUG:open file: W://20241028144319_1505_XXX0006_20rpm.csv
+2025-01-28 11:48:21,805 DEBUG:open file: W://20241028144319_1505_XXX0006_20rpm.csv
+2025-01-28 11:48:35,582 INFO:Switching to labeling tab
+2025-01-28 11:51:05,456 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:51:05,464 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:51:05,467 DEBUG:interactive is False
+2025-01-28 11:51:05,467 DEBUG:platform is win32
+2025-01-28 11:51:05,569 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:51:05,575 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:52:30,714 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:52:30,722 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:52:30,725 DEBUG:interactive is False
+2025-01-28 11:52:30,726 DEBUG:platform is win32
+2025-01-28 11:52:30,822 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:52:30,828 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:52:44,177 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:52:44,185 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:52:44,188 DEBUG:interactive is False
+2025-01-28 11:52:44,188 DEBUG:platform is win32
+2025-01-28 11:52:44,281 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:52:44,287 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:53:10,960 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:53:10,975 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:53:10,978 DEBUG:interactive is False
+2025-01-28 11:53:10,979 DEBUG:platform is win32
+2025-01-28 11:53:11,107 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:53:11,122 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:53:40,456 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:53:40,464 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:53:40,467 DEBUG:interactive is False
+2025-01-28 11:53:40,467 DEBUG:platform is win32
+2025-01-28 11:53:40,561 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:53:40,567 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:54:32,182 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:54:32,190 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:54:32,193 DEBUG:interactive is False
+2025-01-28 11:54:32,193 DEBUG:platform is win32
+2025-01-28 11:54:32,284 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:54:32,291 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:54:33,304 INFO:Dash is running on http://127.0.0.1:8050/
+
+2025-01-28 11:54:39,085 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:54:39,093 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:54:39,096 DEBUG:interactive is False
+2025-01-28 11:54:39,096 DEBUG:platform is win32
+2025-01-28 11:54:39,214 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:54:39,221 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:55:25,344 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:55:25,353 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:55:25,355 DEBUG:interactive is False
+2025-01-28 11:55:25,356 DEBUG:platform is win32
+2025-01-28 11:55:25,463 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:55:25,471 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:55:55,455 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:55:55,464 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:55:55,467 DEBUG:interactive is False
+2025-01-28 11:55:55,467 DEBUG:platform is win32
+2025-01-28 11:55:55,562 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:55:55,568 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:56:35,522 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:56:35,532 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:56:35,534 DEBUG:interactive is False
+2025-01-28 11:56:35,535 DEBUG:platform is win32
+2025-01-28 11:56:35,634 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:56:35,640 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:56:56,695 DEBUG:open file: W://20241024165028_1505_XXX0003_20rpm.csv
+2025-01-28 11:56:56,768 DEBUG:open file: W://20241024165028_1505_XXX0003_20rpm.csv
+2025-01-28 11:56:59,155 DEBUG:open file: W://20241024165028_1505_XXX0003_20rpm.csv
+2025-01-28 11:56:59,220 DEBUG:open file: W://20241024165028_1505_XXX0003_20rpm.csv
+2025-01-28 11:57:21,914 INFO:Switching to labeling tab
+2025-01-28 11:57:33,768 INFO:Switching to labeling tab
+2025-01-28 11:57:33,778 DEBUG:open file: W://20241024165028_1505_XXX0003_20rpm.csv
+2025-01-28 11:57:33,872 DEBUG:open file: W://20241024165028_1505_XXX0003_20rpm.csv
+2025-01-28 11:57:46,377 INFO:Switching to labeling tab
+2025-01-28 11:58:47,121 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:58:47,209 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:58:47,211 DEBUG:interactive is False
+2025-01-28 11:58:47,212 DEBUG:platform is win32
+2025-01-28 11:58:47,315 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:58:47,322 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 11:59:05,984 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 11:59:05,992 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:59:05,995 DEBUG:interactive is False
+2025-01-28 11:59:05,996 DEBUG:platform is win32
+2025-01-28 11:59:06,089 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 11:59:06,095 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 12:00:56,325 DEBUG:open file: W://20250110145760_1505_XXX0010_20rpm.csv
+2025-01-28 12:00:56,384 DEBUG:open file: W://20250110145760_1505_XXX0010_20rpm.csv
+2025-01-28 12:13:39,829 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 12:13:39,837 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:13:39,839 DEBUG:interactive is False
+2025-01-28 12:13:39,840 DEBUG:platform is win32
+2025-01-28 12:13:39,925 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:13:39,932 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 12:33:39,258 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 12:33:39,265 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:33:39,267 DEBUG:interactive is False
+2025-01-28 12:33:39,268 DEBUG:platform is win32
+2025-01-28 12:33:39,354 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:33:39,360 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 12:43:38,894 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 12:43:38,902 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:43:38,904 DEBUG:interactive is False
+2025-01-28 12:43:38,905 DEBUG:platform is win32
+2025-01-28 12:43:38,989 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:43:38,995 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 12:53:44,985 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 12:53:44,996 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:53:44,999 DEBUG:interactive is False
+2025-01-28 12:53:45,000 DEBUG:platform is win32
+2025-01-28 12:53:45,151 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 12:53:45,160 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json
+2025-01-28 12:59:23,519 DEBUG:open file: W://20250110145767_1505_XXX0017_20rpm.csv
+2025-01-28 12:59:23,594 DEBUG:open file: W://20250110145767_1505_XXX0017_20rpm.csv
+2025-01-28 13:00:04,012 DEBUG:matplotlib data path: C:\Users\chimpaleenantaphon\AppData\Local\anaconda3\Lib\site-packages\matplotlib\mpl-data
+2025-01-28 13:00:04,022 DEBUG:CONFIGDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 13:00:04,025 DEBUG:interactive is False
+2025-01-28 13:00:04,025 DEBUG:platform is win32
+2025-01-28 13:00:04,152 DEBUG:CACHEDIR=C:\Users\chimpaleenantaphon\.matplotlib
+2025-01-28 13:00:04,158 DEBUG:Using fontManager instance from C:\Users\chimpaleenantaphon\.matplotlib\fontlist-v390.json

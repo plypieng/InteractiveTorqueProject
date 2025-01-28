@@ -8,7 +8,30 @@ import logging
 import os
 import re
 from dash.exceptions import PreventUpdate
-
+import datetime
+def parse_measurement_time(time_str):
+        """
+        Parse measurement time from format "YYYYMMDDHHMMSS" to datetime object
+        Example: "20250110145764" -> datetime(2025, 01, 10, 14, 57, 64)
+        """
+        try:
+            if not time_str or not isinstance(time_str, str):
+                return None
+            
+            # Extract components
+            year = int(time_str[0:4])
+            month = int(time_str[4:6])
+            day = int(time_str[6:8])
+            hour = int(time_str[8:10])
+            minute = int(time_str[10:12])
+            second = int(time_str[12:14])
+            
+            return datetime.datetime(year, month, day, hour, minute, second)
+        except (ValueError, TypeError, IndexError) as e:
+            logging.error(f"Error parsing measurement time {time_str}: {e}")
+            return datetime.datetime.now()  # Fallback to current time
+        
+        
 def register_review_submission_callbacks(app):
 
     @app.callback(
@@ -123,10 +146,20 @@ def register_review_submission_callbacks(app):
             State("labels-data", "data"),
             State("features-data", "data"),
             State("model-prediction", "children"),  # or "model_prediction_text"
+            State("selected-model", "data"),
+          
         ],
         prevent_initial_call=True
     )
-    def finalize_submission(confirm_click, cancel_click, is_open, file_path, labels_data, features_data, model_prediction_text):
+    def finalize_submission(confirm_click, 
+                            cancel_click, 
+                            is_open, 
+                            file_path, 
+                            labels_data, 
+                            features_data, 
+                            model_prediction_text,
+                            selected_model
+    ):
         """
         Finalize submission: Save everything to DB in a wide-table format, close modal.
         """
@@ -140,14 +173,24 @@ def register_review_submission_callbacks(app):
                 label_info = labels_data.get(file_path, {})
                 with SessionLocal() as session:
                     # find or create measurement
-                    measurement = session.query(Measurement).filter_by(file_path=file_path).first()
+                    measurement = session.query(Measurement).filter_by(
+                            file_path=file_path,
+                        model_version=selected_model
+                    ).first()
                     if not measurement:
+                         # Convert string dates to datetime objects
+                        measurement_time = parse_measurement_time(features_data.get("Measurement date"))
+                        analysis_time = pd.to_datetime(features_data.get("Analysis Date"))
+                        submitted_time = pd.Timestamp.now()
                         measurement = Measurement(
                             file_path=file_path,
                             operator_id=label_info.get("operator_id"),
                             ball_size_id=label_info.get("ball_size"),
-                            timestamp=pd.Timestamp.now(),
-                            status="submitted"
+                            submitted_timestamp=submitted_time.to_pydatetime(),
+                            measurement_time=measurement_time,
+                            analysis_time=analysis_time.to_pydatetime(),
+                            status="submitted",
+                            model_version=selected_model,
                         )
                         session.add(measurement)
                         session.flush()

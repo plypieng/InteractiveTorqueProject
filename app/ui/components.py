@@ -769,25 +769,55 @@ def get_tab5_content():
         html.Hr(),
         html.H4("DBに保存されているMeasurementsを参照・編集", className="mt-4"),
 
-        dbc.Button("テーブルをリフレッシュ", id="refresh-db-table-btn", color="info", className="mb-2"),
+        dbc.Button("テーブルを更新", id="refresh-db-table-btn", color="info", className="mb-2"),
         dash_table.DataTable(
             id="db-review-table",
-            columns=[],
+            columns=[],  # Will be populated by callback
             data=[],
-            editable=True,  # let user edit cells
+            editable=True,
             row_selectable="multi",
             selected_rows=[],
-            style_table={"overflowX": "auto", 
-                         "backgroundColor": "#222"},
-            style_header={"fontWeight": "bold", 
-                          "backgroundColor": "#333", 
-                          "color": "white"},
-            style_cell={"textAlign": "center",
-                        "backgroundColor": "#444",
-                        "color": "white",
-                        "minWidth": "120px", 
-                        "width": "120px", 
-                        "maxWidth": "250px"},
+            style_table={
+                "overflowX": "auto",
+                "backgroundColor": "#222"
+            },
+            style_header={
+                "fontWeight": "bold",
+                "backgroundColor": "#333",
+                "color": "white",
+            },
+            style_cell={
+                "textAlign": "center",
+                "backgroundColor": "#444",
+                "color": "white",
+                "overflow": "hidden",
+                "textOverflow": "ellipsis",
+            },
+            # NEW: Define specific column widths
+            style_cell_conditional=[
+                {"if": {"column_id": "id"}, "width": "60px"},
+                {"if": {"column_id": "file_path"}, "width": "250px", "textAlign": "left"},
+                {"if": {"column_id": "label"}, "width": "100px"},
+                {"if": {"column_id": "predicted_label"}, "width": "120px"},
+                {"if": {"column_id": "confidence"}, "width": "100px"},
+                {"if": {"column_id": "model_version"}, "width": "150px"},
+                {"if": {"column_id": "submitted_timestamp"}, "width": "150px"},
+                {"if": {"column_id": "notes"}, "width": "200px", "textAlign": "left"},
+            ],
+            # NEW: Add tooltip for long text
+            tooltip_delay=0,
+            tooltip_duration=None,
+            # NEW: Configure which columns should show tooltips
+            tooltip_data=[],  # Will be populated by callback
+            # NEW: Style for tooltips
+            tooltip_header={
+                "file_path": "Full file path",
+                "notes": "Full notes text"
+            },
+            css=[{
+                'selector': '.dash-table-tooltip',
+                'rule': 'background-color: #333; color: white; text-align: center;'
+            }],
         ),
         dbc.Button(
             "選択行を削除",

@@ -52,7 +52,8 @@ def create_layout():
         dcc.Store(id="labels-data", data={}),
         dcc.Store(id="prev-file-list", data=[]),
         dcc.Store(id="features-data", data={}),
-        
+        dcc.Store(id="analysis-model-info", data=""),
+
         # メインタブ
         dbc.Tabs([
             dbc.Tab(label="ファイル選択", tab_id="tab-1", id="tab-1", children=[

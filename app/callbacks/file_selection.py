@@ -1,6 +1,5 @@
 # app/callbacks/file_selection.py
 from dash import Input, Output, State, no_update, html
-import dash_bootstrap_components as dbc
 from ..config import Config
 from ..database.session import SessionLocal
 from ..database.models import BallSize

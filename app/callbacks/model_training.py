@@ -5,9 +5,8 @@ import logging
 import pandas as pd
 import numpy as np
 
-from dash import Input, Output, State, no_update, callback_context, dash_table, html, dcc
+from dash import Input, Output, State, callback_context, html
 from dash.exceptions import PreventUpdate
-import dash_bootstrap_components as dbc
 
 from sklearn.model_selection import train_test_split, StratifiedKFold, RandomizedSearchCV
 from sklearn.preprocessing import StandardScaler
@@ -20,7 +19,6 @@ import joblib
 
 from ..database.session import SessionLocal
 from ..database.models import Measurement
-from ..config import Config
 
 
 def register_db_review_callbacks(app):
@@ -31,6 +29,7 @@ def register_db_review_callbacks(app):
     @app.callback(
         Output("db-review-table", "data"),
         Output("db-review-table", "columns"),
+        Output("db-review-table", "tooltip_data"),
         Input("refresh-db-table-btn", "n_clicks"),
         prevent_initial_call=True
     )
@@ -40,21 +39,40 @@ def register_db_review_callbacks(app):
         with SessionLocal() as session:
             measurements = session.query(Measurement).all()
             rows = []
+            tooltip_data = []
             for m in measurements:
-                rows.append({
+                row = {
                     "id": m.id,
+                    "submitted_timestamp": m.submitted_timestamp,
                     "file_path": m.file_path,
                     "label": m.label,
                     "predicted_label": m.predicted_label,
                     "confidence": m.prediction_confidence,
+                    "model_version": m.model_version,
                     "notes": m.notes,
+                }
+                rows.append(row)
+                tooltip_data.append({
+                    "submitted_timestamp": m.submitted_timestamp,
+                    "file_path": m.file_path,
+                    "notes": m.notes, 
                 })
         df = pd.DataFrame(rows)
         if df.empty:
-            return [], [{"name": "No data", "id": "no_data"}]
+            return [], [{"name": "No data", "id": "no_data"}], []
 
-        columns = [{"name": c, "id": c} for c in df.columns]
-        return df.to_dict("records"), columns
+        # Define columns with custom names and IDs
+        columns = [
+            {"name": "ID", "id": "id"},
+            {"name": "File Path", "id": "file_path"},
+            {"name": "Label", "id": "label"},
+            {"name": "Predicted", "id": "predicted_label"},
+            {"name": "Confidence", "id": "confidence"},
+            {"name": "Model Version", "id": "model_version"},
+            {"name": "Submitted-Timestamp", "id": "submitted_timestamp"},
+            {"name": "Notes", "id": "notes"},
+        ]
+        return df.to_dict("records"), columns, tooltip_data
 
     @app.callback(
         Output("db-review-output", "children"),

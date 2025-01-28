@@ -1,10 +1,9 @@
 # app/callbacks/data_visualization.py
-from dash import Input, Output, State, no_update, callback_context, html, dcc, dash_table
-import dash_bootstrap_components as dbc
+from dash import Input, Output, State, no_update, dcc, dash_table
 from ..processing.data_loader import load_data
 from ..processing.filters import high_pass_filter
-from ..processing.feature_extraction import extract_features, calculate_rms, calculate_fft
-from ..processing.anomaly_detection import detected_sudden_spike, analyse_hpf_rms, detect_anomalous_measurement
+from ..processing.feature_extraction import extract_features, calculate_rms
+
 from ..plots.plot_factory import create_normal_plot, create_filtered_plot, create_fft_plot
 from ..database.session import SessionLocal
 from ..database.models import Measurement, BallSize
@@ -13,12 +12,14 @@ import pandas as pd
 import logging
 import os
 import joblib
-import numpy as np
+
 from functools import wraps
-from dash.exceptions import PreventUpdate
+
 from ..config import Config
 from ..utils.file_security import is_safe_path
 from pdf_generator.pdf_creator import generate_pdf
+
+
 
 def register_data_visualization_callbacks(app):
     def log_callback_errors(func):
@@ -176,7 +177,6 @@ def register_data_visualization_callbacks(app):
             data = load_data(file_path_1)
             if data is None or "N[Ncm]" not in data.columns:
                 raise ValueError("Invalid data format")
-            torque_values = data["N[Ncm]"].to_numpy()
         except Exception as e:
             error_msg = f"Error loading data: {str(e)}"
             logging.error(error_msg)
@@ -403,9 +403,7 @@ def register_data_visualization_callbacks(app):
             return dcc.send_file(file_path)
         return no_update
 
-# Helper function to process file will be moved later
-from ..utils.file_security import is_safe_path
-from ..config import Config
+
 def process_file(
     file_path,
     cutoff_freq,
@@ -418,16 +416,20 @@ def process_file(
 ):
     import pandas as pd
     from ..processing.data_loader import load_data
-    from ..processing.feature_extraction import extract_features, calculate_rms
-    from ..processing.filters import high_pass_filter
-    from ..plots.plot_factory import create_normal_plot, create_filtered_plot, create_fft_plot
-    from ..processing.anomaly_detection import detected_sudden_spike, analyse_hpf_rms
-
     import plotly.graph_objs as go
     import logging
     import os
 
-    normal_fig = go.Figure()
+    # graph layout settings
+    layout = go.Layout(
+        showlegend=False,
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+    )
+    
+    normal_fig = go.Figure(
+
+    )
     filtered_fig = go.Figure()
     fft_fig = go.Figure()
     features_dict = {}
