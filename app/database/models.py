@@ -34,6 +34,7 @@ class Measurement(Base):
     # Basic fields
     file_path = Column(String, nullable=False)
     operator_id = Column(String, nullable=False)
+    order_id = Column(String, nullable=True)  # New lot/order ID
     ball_size_id = Column(Integer, ForeignKey('ball_sizes.id'))
     
     measurement_time = Column(DateTime, nullable=False)

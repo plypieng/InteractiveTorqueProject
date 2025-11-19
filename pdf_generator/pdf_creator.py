@@ -5,7 +5,7 @@ matplotlib.use('Agg')  # Use a non-interactive backend suitable for scripts
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_pdf import PdfPages
 from app.processing.filters import high_pass_filter
-from app.processing.feature_extraction import calculate_rms, extract_all_features
+from app.processing.feature_extraction import calculate_rms, extract_features
 import logging
 import numpy as np
 from scipy.fft import fft
@@ -52,7 +52,7 @@ def generate_pdf(csv_file_path, cutoff=0.1):
             logging.error(f"Required columns missing in {csv_file_path}. Found columns: {data.columns}")
             return
 
-        features = extract_all_features(data['N[Ncm]'], cutoff=cutoff)
+        features = extract_features(data['N[Ncm]'].to_numpy(), fs=100.0)
 
         output_pdf_path = csv_file_path.replace('.csv', '.pdf')
         with PdfPages(output_pdf_path) as pdf:

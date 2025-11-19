@@ -198,6 +198,8 @@ def register_review_submission_callbacks(app):
                     # Fill label & notes
                     measurement.label = label_info.get("label")
                     measurement.notes = label_info.get("notes")
+                    # Store Order ID
+                    measurement.order_id = label_info.get("order_id")
 
                     # Store features in wide columns
                     if features_data:

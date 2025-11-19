@@ -108,7 +108,29 @@ def get_tab1_content():
                 ),
             ], width=12, md=6),
         ], className="mb-4"),
-
+        # New Order ID input row
+        dbc.Row([
+            dbc.Col([
+                html.Label("オーダー番号:", className="fw-bold"),
+                dbc.Input(
+                    id="order-id-input",
+                    type="text",
+                    placeholder="オーダー番号を入力してください",
+                    className="mb-2",
+                    value=None,
+                ),
+                dbc.FormFeedback(
+                    "オーダー番号を入力してください",
+                    id="order-id-feedback",
+                ),
+                dbc.Tooltip(
+                    "Order or lot identifier",
+                    target="order-id-input",
+                    placement="right",
+                    delay={"show": 200, "hide": 0},
+                ),
+            ], width=12, md=6),
+        ], className="mb-4"),
         dbc.Row([
             dbc.Col([
                 html.Label("ボールサイズ:", className="fw-bold"),
@@ -131,7 +153,6 @@ def get_tab1_content():
                 ),
             ], width=12, md=6),
         ], className="mb-4"),
-
         dbc.Row([
             dbc.Col([
                 html.Label("測定ファイル 1 選択:", className="fw-bold"),
@@ -154,27 +175,7 @@ def get_tab1_content():
                 ),
             ], width=12, md=6),
         ], className="mb-4"),
-
-        dbc.Row([
-            dbc.Col([
-                html.Label("測定ファイル 2 選択（WIP）:", className="fw-bold"),
-                dbc.Select(
-                    id="file-dropdown-2",
-                    options=[],
-                    placeholder="CSVファイルを選択してください（任意）",
-                    className="mb-2",
-                    value=None,
-                ),
-                dbc.Tooltip(
-                    "比較用に追加の測定用CSVファイルを選択してください（任意）",
-                    target="file-dropdown-2",
-                    placement="right",
-                    delay={"show": 200, "hide": 0},
-                ),
-            ], width=12, md=6),
-        ], className="mb-4"),
-        
-# ===== NEW: Model selection dropdown =====
+        # ===== NEW: Model selection dropdown =====
         dbc.Row([
             dbc.Col([
                 html.Label("使用するモデル:", className="fw-bold"),
@@ -188,7 +189,6 @@ def get_tab1_content():
                 dbc.FormText("予測に使用する.pklモデルを選択"),
             ], width=12, md=6),
         ], className="mb-4"),
-        
         dbc.Button(
             [
                 html.I(className="fas fa-arrow-right me-2"),
@@ -210,12 +210,14 @@ def get_tab2_content():
         html.H3("ステップ 2: データの可視化", className="mb-4"),
         
         # Model Prediction Alert (optional, can remove if not needed)
+        html.H5("AI判断結果", className="fw-bold text-primary mb-2"),
         dbc.Alert(
             id="model-prediction",
+            color="primary",
             className="mb-4",
             dismissable=True,
             duration=4000,
-            style={"fontSize": "1.1em"}
+            style={"fontSize": "1.2em", "borderWidth": "2px", "borderColor": "#0d6efd"}
         ),
         
         # Anomaly Alert with icon
@@ -239,7 +241,7 @@ def get_tab2_content():
             
             dbc.CardBody([
                 # Parameter inputs row is optional—moved if you like
-                dbc.Row(style=hidden_mode, children=[
+                dbc.Row(id="dev-params-row1", style=hidden_mode, children=[
                     dbc.Col([
                         html.Label("ハイパスフィルターカットオフ周波数（Hz）:", className="fw-bold"),
                         dbc.InputGroup([
@@ -281,7 +283,7 @@ def get_tab2_content():
                     ], md=4),
                 ], className="mb-3"),
                 
-                dbc.Row(style=hidden_mode, children=[
+                dbc.Row(id="dev-params-row2", style=hidden_mode, children=[
                     dbc.Col([
                         html.Label("スパイクしきい値:", className="fw-bold"),
                         dbc.Input(
@@ -402,22 +404,22 @@ def get_tab2_content():
                             html.Span(id="analysis-ball-size", className="ms-2")
                         ]),
                         html.P([
-                            html.Strong("Measurement Date: "),
+                            html.Strong("測定日時: "),
                             html.Span(id="analysis-measurement-date", className="ms-2")
                         ]),
                         html.P([
-                            html.Strong("Analysis Date: "),
+                            html.Strong("解析日時: "),
                             html.Span(id="analysis-analysis-date", className="ms-2")
                         ]),
                     ], md=6),
 
                     dbc.Col([
                         html.P([
-                            html.Strong("Size: "),
+                            html.Strong("サイズ: "),
                             html.Span(id="analysis-size", className="ms-2")
                         ]),
                         html.P([
-                            html.Strong("Number: "),
+                            html.Strong("オーダーID: "),
                             html.Span(id="analysis-number", className="ms-2")
                         ]),
                         html.P([
@@ -456,7 +458,7 @@ def get_tab2_content():
                 html.H5("抽出された特徴量", className="mt-3", style=hidden_mode),
                 
                 html.Div(
-                    id="features-table-2", 
+                    id="features-table-2",
                     className="mb-4",
                     style=hidden_mode
                 ),
@@ -530,6 +532,10 @@ def get_tab3_content():
                         html.P([
                             html.Strong("オペレーター: "),
                             html.Span(id="selected-operator-name")
+                        ]),
+                        html.P([
+                            html.Strong("オーダーID: "),
+                            html.Span(id="selected-order-id")
                         ]),
                     ], md=6),
                     dbc.Col([
@@ -661,6 +667,10 @@ def get_tab4_content():
                             id="review-assigned-labels",
                             className="mb-4"
                         ),
+                        html.P([
+                            html.Strong("オーダーID: "),
+                            html.Span(id="review-order-id", className="ms-2")
+                        ]),
                     ], md=6),
                 ]),
                 # review features
@@ -770,6 +780,8 @@ def get_tab5_content():
         html.H4("DBに保存されているMeasurementsを参照・編集", className="mt-4"),
 
         dbc.Button("テーブルを更新", id="refresh-db-table-btn", color="info", className="mb-2"),
+        dbc.Button([html.I(className="fas fa-file-csv me-2"), "DBをCSVでダウンロード"], id="download-db-csv-btn", color="primary", className="mb-2 ms-2"),
+        dcc.Download(id="download-db-csv"),
         dash_table.DataTable(
             id="db-review-table",
             columns=[],  # Will be populated by callback
@@ -777,23 +789,37 @@ def get_tab5_content():
             editable=True,
             row_selectable="multi",
             selected_rows=[],
+            column_selectable="single",
+            sort_action="native",
+            sort_mode="multi",
+            filter_action="native",
+            page_action="native",
+            page_current=0,
+            page_size=10,
             style_table={
+                "maxHeight": "400px",
+                "overflowY": "auto",
                 "overflowX": "auto",
                 "backgroundColor": "#222"
             },
             style_header={
                 "fontWeight": "bold",
                 "backgroundColor": "#333",
-                "color": "white",
+                "color": "white"
             },
             style_cell={
                 "textAlign": "center",
                 "backgroundColor": "#444",
                 "color": "white",
                 "overflow": "hidden",
-                "textOverflow": "ellipsis",
+                "textOverflow": "ellipsis"
             },
-            # NEW: Define specific column widths
+            style_data_conditional=[
+                {"if": {"row_index": "odd"}, "backgroundColor": "#333"},
+                {"if": {"state": "selected"}, "backgroundColor": "#555", "border": "1px solid #888"},
+                {"if": {"filter_query": "{label} = 'FAIL'", "column_id": "label"}, "backgroundColor": "#3b1c1c", "color": "white"},
+                {"if": {"filter_query": "{label} = 'PASS'", "column_id": "label"}, "backgroundColor": "#1c3b1c", "color": "white"}
+            ],
             style_cell_conditional=[
                 {"if": {"column_id": "id"}, "width": "60px"},
                 {"if": {"column_id": "file_path"}, "width": "250px", "textAlign": "left"},
@@ -802,14 +828,11 @@ def get_tab5_content():
                 {"if": {"column_id": "confidence"}, "width": "100px"},
                 {"if": {"column_id": "model_version"}, "width": "150px"},
                 {"if": {"column_id": "submitted_timestamp"}, "width": "150px"},
-                {"if": {"column_id": "notes"}, "width": "200px", "textAlign": "left"},
+                {"if": {"column_id": "notes"}, "width": "200px", "textAlign": "left"}
             ],
-            # NEW: Add tooltip for long text
             tooltip_delay=0,
             tooltip_duration=None,
-            # NEW: Configure which columns should show tooltips
             tooltip_data=[],  # Will be populated by callback
-            # NEW: Style for tooltips
             tooltip_header={
                 "file_path": "Full file path",
                 "notes": "Full notes text"
@@ -827,3 +850,57 @@ def get_tab5_content():
         ),
         html.Div(id="db-review-output", className="mt-3 text-info"),
     ])
+
+def get_settings_content():
+    return dbc.Container([
+        html.H3("設定", className="mb-4"),
+        dbc.Row([
+            dbc.Col([
+                html.Label("許可されたディレクトリ:", className="fw-bold"),
+                dbc.Input(
+                    id="allowed-directory-input",
+                    type="text",
+                    placeholder="ディレクトリパスを手動で入力してください",
+                    value=Config.ALLOWED_DIRECTORY,
+                    className="mb-2"
+                ),
+            ], width=12, md=6),
+        ], className="mb-3"),
+        dbc.Row([
+            dbc.Col([
+                html.Label("データベースファイルのパス:", className="fw-bold"),
+                dbc.Input(
+                    id="database-path-input",
+                    type="text",
+                    placeholder="データベースファイルのパスを入力してください",
+                    value=Config.DATABASE_URL.replace("sqlite:///", ""),
+                    className="mb-2"
+                ),
+                dbc.FormText("存在しない場合は新規作成を確認します"),
+            ], width=12, md=6),
+        ], className="mb-3"),
+        dcc.ConfirmDialog(
+            id="confirm-create-db",
+            message="指定されたパスにデータベースが存在しません。新しく作成しますか？"
+        ),
+        dbc.Row([
+            dbc.Col([
+                html.Label("新しい開発者パスワード:", className="fw-bold"),
+                dbc.Input(
+                    id="developer-password-input",
+                    type="password",
+                    placeholder="新しいパスワードを入力してください",
+                    className="mb-2"
+                ),
+                html.Label("パスワードを確認:", className="fw-bold"),
+                dbc.Input(
+                    id="developer-password-confirm-input",
+                    type="password",
+                    placeholder="新しいパスワードを確認してください",
+                    className="mb-2"
+                ),
+            ], width=12, md=6),
+        ], className="mb-3"),
+        dbc.Button("設定を保存", id="save-settings-btn", color="primary"),
+        html.Div(id="settings-feedback", className="mt-3")
+    ], fluid=True)

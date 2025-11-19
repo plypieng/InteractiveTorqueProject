@@ -1,5 +1,5 @@
 # app/callbacks/data_visualization.py
-from dash import Input, Output, State, no_update, dcc, dash_table
+from dash import Input, Output, State, no_update, dash_table
 from ..processing.data_loader import load_data
 from ..processing.filters import high_pass_filter
 from ..processing.feature_extraction import extract_features, calculate_rms
@@ -52,11 +52,11 @@ def register_data_visualization_callbacks(app):
             Output("selected-ball-size-name", "children"),
             Output("selected-operator-name", "children"),
         ],
+        Input("proceed-labeling-btn", "n_clicks"),
         [
-            Input("proceed-labeling-btn", "n_clicks"),
-            Input("operator-id-input", "value"),
-            Input("ball-size-dropdown", "value"),
-            Input("selected-file-1", "data"),
+            State("operator-id-input", "value"),
+            State("ball-size-dropdown", "value"),
+            State("selected-file-1", "data"),
         ],
         prevent_initial_call=True
     )
@@ -94,7 +94,7 @@ def register_data_visualization_callbacks(app):
             Output("analysis-rpm", "children"),
             Output("analysis-result-big", "children"),
             Output("analysis-confidence", "children"),
-            Output("analysis-model-info", "children"),
+            Output("analysis-model-info", "data"),
         ],
         [
             Input("selected-file-1", "data"),
@@ -281,7 +281,7 @@ def register_data_visualization_callbacks(app):
                 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
                 models_dir = os.path.join(PROJECT_ROOT, "trained_models")
                 chosen_model = selected_model  # from the store
-                print("DEBUG: selected_model = ", chosen_model)
+                logging.debug(f"DEBUG: selected_model = {chosen_model}")
                 model_path = os.path.join(models_dir, str(chosen_model))
                  
                 best_model = joblib.load(model_path)  # or best_model.pkl

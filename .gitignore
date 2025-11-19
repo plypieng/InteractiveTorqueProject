@@ -36,3 +36,18 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Python #
+##########
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Project Specific #
+####################
+uploads/
+backup/
+data/
+trained_models/
+.vscode/

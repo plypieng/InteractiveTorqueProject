@@ -11,8 +11,6 @@ def register_file_selection_callbacks(app):
         [
             Output("file-dropdown-1", "options"),
             Output("file-dropdown-1", "value"),
-            Output("file-dropdown-2", "options"),
-            Output("file-dropdown-2", "value"),
             Output("ball-size-dropdown", "options"),
             Output("prev-file-list", "data"),
         ],
@@ -21,7 +19,6 @@ def register_file_selection_callbacks(app):
         ],
         [
             State("file-dropdown-1", "value"), 
-            State("file-dropdown-2", "value"), 
             State("prev-file-list", "data")
         ],
         prevent_initial_call=True
@@ -29,7 +26,6 @@ def register_file_selection_callbacks(app):
     def update_file_and_ball_size_options(
         n_intervals, 
         selected_file1, 
-        selected_file2, 
         prev_file_list
     ):
         """_summary_
@@ -66,13 +62,12 @@ def register_file_selection_callbacks(app):
             if sorted(current_files) != sorted(prev_file_list):
                 valid_values = [option["value"] for option in options_sorted]
                 value1 = selected_file1 if selected_file1 in valid_values else None
-                value2 = selected_file2 if selected_file2 in valid_values else None
-                return (options_sorted, value1, options_sorted, value2, ball_size_options, current_files)
+                return (options_sorted, value1, ball_size_options, current_files)
             else:
-                return [no_update]*6
+                return [no_update]*4
         except Exception as e:
             logging.error(f"Error updating file and ball size options: {e}", exc_info=True)
-            return [no_update]*6
+            return [no_update]*4
         
         
     @app.callback(
@@ -103,10 +98,9 @@ def register_file_selection_callbacks(app):
 
     @app.callback(
         [
-            Output("proceed-visualization-btn", "disabled"),
-            Output("proceed-visualization-btn", "children"),
+            Output("proceed-visualization-btn", "disabled", allow_duplicate=True),
+            Output("proceed-visualization-btn", "children", allow_duplicate=True),
             Output("selected-file-1", "data"),
-            Output("selected-file-2", "data"),
             Output("selected-ball-size", "data"),
             Output("selected-model", "data"),
         ],
@@ -115,35 +109,30 @@ def register_file_selection_callbacks(app):
             Input("ball-size-dropdown", "value"),
             Input("operator-id-input", "value"),
             Input("model-dropdown", "value"),
-            
         ],
-        [State("file-dropdown-2", "value")],
         prevent_initial_call=True,
     )
     def update_proceed_button(
         file1, 
         ball_size_id, 
         operator_id, 
-        model_name, 
-        file2
+        model_name
     ):
         """
         Enables the 'Proceed' button only if file1, ball_size_id, operator_id, and model_name are all selected.
-        Also sets the hidden stores: selected-file-1, selected-file-2, selected-ball-size, selected-model.
+        Also sets the hidden stores: selected-file-1, selected-ball-size, selected-model.
         """
         if all([file1, ball_size_id, operator_id, model_name]):
             return (
                 False,
-                [html.I(className="fas fa-arrow-right me-2"), "Proceed to Visualization"],
+                [html.I(className="fas fa-arrow-right me-2"), "可視化に進む"],
                 file1,
-                file2,
                 ball_size_id,
                 model_name
             )
         return (
             True,
             [html.I(className="fas fa-arrow-right me-2"), "Complete All Required Fields"],
-            no_update,
             no_update,
             no_update,
             no_update
@@ -199,16 +188,23 @@ def register_file_selection_callbacks(app):
         ]
     
     @app.callback(
-        [Output("tabs", "active_tab", allow_duplicate=True),
-         Output("tab-2", "disabled")],
+        [
+            Output("tabs", "active_tab", allow_duplicate=True),
+            Output("tab-2", "disabled"),
+            Output("proceed-visualization-btn", "children", allow_duplicate=True),
+            Output("proceed-visualization-btn", "disabled", allow_duplicate=True),
+        ],
         [Input("proceed-visualization-btn", "n_clicks")],
         [State("tabs", "active_tab")],
         prevent_initial_call=True
     )
     def switch_to_visualization_tab(n_clicks, current_tab):
         if n_clicks:
-            return "tab-2", False
-        return no_update, no_update
-    
-    
-    
+            # disable button and indicate processing
+            return (
+                "tab-2",
+                False,
+                [html.I(className="fas fa-spinner fa-spin me-2"), "処理中..."],
+                True
+            )
+        return no_update, no_update, no_update, no_update

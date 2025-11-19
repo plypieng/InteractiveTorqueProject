@@ -45,6 +45,7 @@ def register_data_labeling_callbacks(app):
             State("review-assigned-labels", "children"),
             State("selected-ball-size", "data"),
             State("operator-id-input", "value"),
+            State("order-id-input", "value"),  # Capture order ID
         ],
         prevent_initial_call=True
     )
@@ -59,7 +60,8 @@ def register_data_labeling_callbacks(app):
         files, 
         labels,
         ball_size_id, 
-        operator_id
+        operator_id,
+        order_id  # New order ID parameter
     ):
         ctx = callback_context
         if not ctx.triggered:
@@ -76,6 +78,7 @@ def register_data_labeling_callbacks(app):
                 "file_path": file_path,
                 "operator_id": operator_id,
                 "ball_size": ball_size_id,
+                "order_id": order_id,  # Include order ID
                 "label": label_value,
                 "notes": notes or "",
                 "timestamp": pd.Timestamp.now().isoformat()

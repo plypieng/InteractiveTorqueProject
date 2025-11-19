@@ -5,7 +5,7 @@ import logging
 import pandas as pd
 import numpy as np
 
-from dash import Input, Output, State, callback_context, html
+from dash import Input, Output, State, callback_context, html, dcc
 from dash.exceptions import PreventUpdate
 
 from sklearn.model_selection import train_test_split, StratifiedKFold, RandomizedSearchCV
@@ -27,14 +27,22 @@ def register_db_review_callbacks(app):
     """
 
     @app.callback(
-        Output("db-review-table", "data"),
-        Output("db-review-table", "columns"),
-        Output("db-review-table", "tooltip_data"),
+        [Output("db-review-table", "data"), Output("db-review-table", "columns"), Output("db-review-table", "tooltip_data")],
+        Input("tabs", "active_tab"),
         Input("refresh-db-table-btn", "n_clicks"),
         prevent_initial_call=True
     )
-    def refresh_db_table(n):
-        if not n:
+    def refresh_db_table(active_tab, n_clicks):
+        ctx = callback_context
+        triggered = ctx.triggered[0]["prop_id"].split(".")[0]
+        # Only refresh on Tab5 activation or manual click
+        if triggered == "tabs":
+            if active_tab != "tab-5":
+                raise PreventUpdate
+        elif triggered == "refresh-db-table-btn":
+            if not n_clicks:
+                raise PreventUpdate
+        else:
             raise PreventUpdate
         with SessionLocal() as session:
             measurements = session.query(Measurement).all()
@@ -45,6 +53,8 @@ def register_db_review_callbacks(app):
                     "id": m.id,
                     "submitted_timestamp": m.submitted_timestamp,
                     "file_path": m.file_path,
+                    "order_id": m.order_id,
+                    "operator_id": m.operator_id,
                     "label": m.label,
                     "predicted_label": m.predicted_label,
                     "confidence": m.prediction_confidence,
@@ -63,14 +73,16 @@ def register_db_review_callbacks(app):
 
         # Define columns with custom names and IDs
         columns = [
-            {"name": "ID", "id": "id"},
-            {"name": "File Path", "id": "file_path"},
-            {"name": "Label", "id": "label"},
-            {"name": "Predicted", "id": "predicted_label"},
-            {"name": "Confidence", "id": "confidence"},
-            {"name": "Model Version", "id": "model_version"},
-            {"name": "Submitted-Timestamp", "id": "submitted_timestamp"},
-            {"name": "Notes", "id": "notes"},
+            {"name": "ID", "id": "id", "editable": False},
+            {"name": "ファイルパス", "id": "file_path", "editable": False},
+            {"name": "オーダー番号", "id": "order_id", "editable": False},
+            {"name": "オペレーターID", "id": "operator_id", "editable": False},
+            {"name": "ラベル", "id": "label", "editable": False},
+            {"name": "予測ラベル", "id": "predicted_label", "editable": False},
+            {"name": "予測信頼度", "id": "confidence", "editable": False},
+            {"name": "モデルバージョン", "id": "model_version", "editable": False},
+            {"name": "提出日時", "id": "submitted_timestamp", "editable": False},
+            {"name": "備考", "id": "notes", "editable": True, "presentation": "input"},
         ]
         return df.to_dict("records"), columns, tooltip_data
 
@@ -135,14 +147,32 @@ def register_db_review_callbacks(app):
                 msg = "Error deleting rows."
         return msg
 
+    @app.callback(
+        Output("download-db-csv", "data"),
+        Input("download-db-csv-btn", "n_clicks"),
+        prevent_initial_call=True
+    )
+    def download_db_csv(n_clicks):
+        if not n_clicks:
+            raise PreventUpdate
+        with SessionLocal() as session:
+            measurements = session.query(Measurement).all()
+            # Extract all columns (including features) dynamically
+            rows = []
+            for m in measurements:
+                row = {col.name: getattr(m, col.name) for col in Measurement.__table__.columns}
+                rows.append(row)
+        df = pd.DataFrame(rows)
+        return dcc.send_data_frame(df.to_csv, "measurements.csv", index=False)
+
 def register_model_training_callbacks(app):
 
     @app.callback(
         [
             Output("db-training-log", "children"),
-            Output("db-training-status-alert", "is_open"),
-            Output("db-training-status-alert", "children"),
-            Output("db-training-status-alert", "color"),
+        Output("db-training-status-alert", "is_open"),
+        Output("db-training-status-alert", "children"),
+        Output("db-training-status-alert", "color"),
         ],
         [Input("start-db-training-btn", "n_clicks")],
         [
@@ -155,7 +185,7 @@ def register_model_training_callbacks(app):
         """
         Trains a new model from DB using wide columns on Measurement.
         Saves to {model_name}.pkl if model_name is given, else "best_model.pkl".
-        """
+        """         
         if not n_clicks:
             raise PreventUpdate
 
