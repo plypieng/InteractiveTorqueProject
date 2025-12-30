@@ -13744,3 +13744,7 @@ pandas._libs.tslibs.parsing.DateParseError: second must be in 0..59: 20250110145
 2025-04-30 15:40:19,160 DEBUG:platform is win32
 2025-04-30 15:40:19,231 DEBUG:CACHEDIR=C:\Users\plysd\.matplotlib
 2025-04-30 15:40:19,236 DEBUG:Using fontManager instance from C:\Users\plysd\.matplotlib\fontlist-v390.json
+2025-11-20 07:46:09,088 INFO:Running in development mode
+2025-11-20 07:55:33,878 INFO:Running in development mode
+2025-11-20 07:58:52,024 INFO:Running in development mode
+2025-11-20 08:26:13,454 INFO:Running in development mode

@@ -10,8 +10,6 @@ class Config:
     LOG_FILE = os.path.join(LOG_DIRECTORY, "app.log")
     ALLOWED_DIRECTORY = os.getenv('ALLOWED_DIRECTORY', 'W:\\')  # Example default if not set
     DATABASE_URL = os.getenv('DATABASE_URL', 'sqlite:///torque_data.db')
-    CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379/0')
-    CELERY_BACKEND_URL = os.getenv('CELERY_BACKEND_URL', 'redis://localhost:6379/0')
     APP_MODE = os.getenv('APP_MODE', 'operator')
     DEVELOPER_PASSWORD = os.getenv('DEVELOPER_PASSWORD', 'devpass')
     # Add more config parameters as needed

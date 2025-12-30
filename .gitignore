@@ -51,3 +51,6 @@ backup/
 data/
 trained_models/
 .vscode/
+cache/
+build/
+dist/

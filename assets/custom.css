@@ -1,16 +1,134 @@
 /* assets/custom.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@300;400;600&display=swap');
 
-/* Center the help button */
-#open-modal {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0d1117;
+    color: #c9d1d9;
 }
 
-/* Adjust margins for layout components */
+/* Glassmorphism Card Effect */
+.card {
+    background: rgba(22, 27, 34, 0.7) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(48, 54, 61, 0.8) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+}
+
+.card-header {
+    background: rgba(33, 38, 45, 0.5) !important;
+    border-bottom: 1px solid rgba(48, 54, 61, 0.8) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+}
+
+/* Premium Typography for results */
+#analysis-result-big {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+}
+
+/* Center things and adjust spacing */
+#open-modal {
+    display: inline-block;
+    margin: 0.5rem;
+}
+
 .mb-3 {
     margin-bottom: 1rem !important;
 }
+
 .mb-4 {
     margin-bottom: 1.5rem !important;
+}
+
+/* Custom Progress Bar Style */
+.progress {
+    background-color: #30363d !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #238636 0%, #2ea043 100%) !important;
+}
+
+/* Custom Tab Styling */
+.nav-tabs .nav-link {
+    color: #8b949e !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    transition: all 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+    color: #58a6ff !important;
+    background: transparent !important;
+    border-bottom: 2px solid #58a6ff !important;
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+    border-bottom: 2px solid rgba(88, 166, 255, 0.3) !important;
+}
+
+/* Full-Page Loading Overlay */
+.loading-overlay-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 17, 23, 0.9);
+    display: none;
+    /* Controlled by Dash */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% {
+        background-position: -468px 0;
+    }
+
+    100% {
+        background-position: 468px 0;
+    }
+}
+
+.shimmer {
+    background: #161b22;
+    background-image: linear-gradient(to right, #161b22 0%, #30363d 20%, #161b22 40%, #161b22 100%);
+    background-repeat: no-repeat;
+    background-size: 800px 104px;
+    display: inline-block;
+    position: relative;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: shimmer;
+    animation-timing-function: linear;
+}
+
+/* Tooltip Customization */
+.tooltip-inner {
+    background-color: #30363d !important;
+    color: #c9d1d9 !important;
+    border: 1px solid rgba(88, 166, 255, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip .tooltip-arrow::before {
+    border-top-color: #30363d !important;
 }

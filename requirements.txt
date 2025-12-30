@@ -8,10 +8,12 @@ flask
 dash-auth
 sqlalchemy
 joblib==1.3.2
-celery==5.2.7
-redis==4.6.0
 scikit-learn
 matplotlib
 alembic
 imblearn
 python-dotenv
+pywebview
+pyinstaller
+watchdog
+diskcache

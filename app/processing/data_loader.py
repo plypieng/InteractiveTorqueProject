@@ -7,6 +7,7 @@ import logging
 def load_data(file_path):
     try:
         if not is_safe_path(Config.ALLOWED_DIRECTORY, file_path):
+            logging.error(f"Security Check Failed. Allowed: '{Config.ALLOWED_DIRECTORY}', Target: '{file_path}'")
             raise ValueError("Attempted to access a file outside the allowed directory.")
         
         data = pd.read_csv(file_path, encoding='shift-jis')

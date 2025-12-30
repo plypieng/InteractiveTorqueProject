@@ -1,8 +1,9 @@
 # app/callbacks/data_visualization.py
-from dash import Input, Output, State, no_update, dash_table
+from dash import Input, Output, State, no_update, dash_table, dcc
 from ..processing.data_loader import load_data
 from ..processing.filters import high_pass_filter
 from ..processing.feature_extraction import extract_features, calculate_rms
+from ..processing.measurement_processor import analyze_torque_data
 
 from ..plots.plot_factory import create_normal_plot, create_filtered_plot, create_fft_plot
 import plotly.graph_objs as go
@@ -10,6 +11,7 @@ import pandas as pd
 import logging
 import os
 import joblib
+import shutil
 
 from functools import wraps
 
@@ -17,7 +19,24 @@ from ..config import Config
 from ..utils.file_security import is_safe_path
 from pdf_generator.pdf_creator import generate_pdf
 
+# Model cache to avoid redundant loading
+MODEL_CACHE = {}
 
+def get_cached_model(model_path):
+    """Retrieve model from cache or load it if not present."""
+    if model_path in MODEL_CACHE:
+        return MODEL_CACHE[model_path]
+    
+    if os.path.exists(model_path):
+        try:
+            model = joblib.load(model_path)
+            MODEL_CACHE[model_path] = model
+            logging.info(f"Model loaded and cached: {model_path}")
+            return model
+        except Exception as e:
+            logging.error(f"Error loading model {model_path}: {e}")
+            return None
+    return None
 
 def register_data_visualization_callbacks(app):
     def log_callback_errors(func):
@@ -40,9 +59,20 @@ def register_data_visualization_callbacks(app):
     )
     def switch_to_file_selection_tab(n_clicks):
         if n_clicks:
-            logging.info("Switching to file selection tab") 
+            logging.info(f"Back to File Selection button clicked. n_clicks={n_clicks}")
             return "tab-1"
         return no_update
+
+    @app.callback(
+        Output("params-offcanvas", "is_open"),
+        Input("open-params-canvas", "n_clicks"),
+        State("params-offcanvas", "is_open"),
+        prevent_initial_call=True
+    )
+    def toggle_params_offcanvas(n_clicks, is_open):
+        if n_clicks:
+            return not is_open
+        return is_open
     
     @app.callback(
         [
@@ -55,16 +85,16 @@ def register_data_visualization_callbacks(app):
         Input("proceed-labeling-btn", "n_clicks"),
         [
             State("operator-id-input", "value"),
-            State("ball-size-dropdown", "value"),
+            State("selected-ball-size", "data"),
             State("selected-file-1", "data"),
         ],
         prevent_initial_call=True
     )
-    def switch_to_labeling_tab(n_clicks, operator_id, ball_size_id, file_path_1):
+    def switch_to_labeling_tab(n_clicks, operator_id, ball_size_val, file_path_1):
         if n_clicks:
-            logging.info("Switching to labeling tab")
+            logging.info(f"Proceed to Labeling button clicked. n_clicks={n_clicks}")
             file_name = os.path.basename(file_path_1)
-            return "tab-3", False, file_name, ball_size_id, operator_id
+            return "tab-3", False, file_name, str(ball_size_val), operator_id
         return no_update, no_update, no_update, no_update, no_update
     
     @app.callback(
@@ -93,8 +123,10 @@ def register_data_visualization_callbacks(app):
             Output("analysis-number", "children"),
             Output("analysis-rpm", "children"),
             Output("analysis-result-big", "children"),
-            Output("analysis-confidence", "children"),
+            Output("analysis-confidence-bar", "value"),
+            Output("analysis-confidence-text", "children"),
             Output("analysis-model-info", "data"),
+            Output("loading-overlay", "style", allow_duplicate=True),
         ],
         [
             Input("selected-file-1", "data"),
@@ -168,7 +200,8 @@ def register_data_visualization_callbacks(app):
                 "N/A",
                 "N/A",
                 "Unknown",
-                "N/A",
+                0,      # Confidence Value
+                "N/A",  # Confidence Text
             )
 
         # Load data
@@ -184,7 +217,8 @@ def register_data_visualization_callbacks(app):
                 "Error loading data", error_msg,
                 True, False, error_msg, "danger",
                 model_prediction_text, analysis_summary, model_prediction_text,
-                {}, no_update
+                {}, no_update,
+                "Unknown", "Unknown", "Unknown", "N/A", "N/A", "N/A", "N/A", "N/A", "Unknown", 0, "N/A"
             )
 
         # Process file & generate plots
@@ -198,6 +232,7 @@ def register_data_visualization_callbacks(app):
                 y_axis_range,
                 ball_size_id,
                 operator_id,
+                file_path_2=file_path_2,
             )
             if not figs or len(figs) != 3:
                 raise ValueError("Invalid result from data processing")
@@ -223,8 +258,9 @@ def register_data_visualization_callbacks(app):
             
             # big pass or fail
             big_result = ""
-            # will be parse from model_prediction_text later when the model is implemented
-            confidence_display = "(Confidence: )"
+            confidence_value = 0
+            confidence_text = "N/A"
+            model_info_text = "Model not loaded"
             
             
             # Build the DataTable for Tab 2
@@ -263,16 +299,19 @@ def register_data_visualization_callbacks(app):
                     "No model selected",
                     {},
                     no_update,
+                    file_name_display,
+                    operator_display,
+                    ball_size_display,
+                    measurement_date_display,
+                    analysis_date_display,
+                    size_display,
+                    number_display,
+                    rpm_display,
                     "Unknown",
-                    "Unknown",
-                    "Unknown",
+                    0,
                     "N/A",
                     "N/A",
-                    "N/A",
-                    "N/A",
-                    "N/A",
-                    "Unknown",
-                    "N/A",
+                    {"display": "none"}
                 )
 
             
@@ -284,7 +323,7 @@ def register_data_visualization_callbacks(app):
                 logging.debug(f"DEBUG: selected_model = {chosen_model}")
                 model_path = os.path.join(models_dir, str(chosen_model))
                  
-                best_model = joblib.load(model_path)  # or best_model.pkl
+                best_model = get_cached_model(model_path)
                 if best_model is not None and stored_features:
                     # Convert the feature dict to a DataFrame with same columns as training
                     # Remove non-numeric or metadata columns the model doesn't expect
@@ -310,7 +349,39 @@ def register_data_visualization_callbacks(app):
                     
                     # Override the big_result if you prefer the model's result
                     big_result = f"AI判断結果: {prediction_label}"    
-                    confidence_display = f"(信頼度スコア: {probability:.2f})"
+                    confidence_value = probability * 100
+                    confidence_text = f"{probability:.2%}"
+
+                    # Save to DB
+                    with SessionLocal() as session:
+                        # Check if measurement exists
+                        existing_measurement = session.query(Measurement).filter_by(
+                            file_path=file_path_1,
+                            model_version=str(chosen_model)
+                        ).first()
+                        
+                        if existing_measurement:
+                            # Update existing measurement
+                            existing_measurement.prediction = prediction_label
+                            existing_measurement.confidence = probability
+                            existing_measurement.prediction_timestamp = datetime.datetime.now()
+                            existing_measurement.status = "Predicted"
+                        else:
+                            # Create new measurement if it doesn't exist
+                            new_measurement = Measurement(
+                                file_path=file_path_1,
+                                operator_id=operator_id,
+                                ball_size=float(ball_size_id) if ball_size_id else None,
+                                model_version=str(chosen_model),
+                                prediction=prediction_label,
+                                confidence=probability,
+                                prediction_timestamp=datetime.datetime.now(),
+                                status="Predicted"
+                            )
+                            session.add(new_measurement)
+
+                        session.commit()
+
                 else:
                     model_prediction_text = "No valid features for model prediction"
             except Exception as e:
@@ -319,36 +390,8 @@ def register_data_visualization_callbacks(app):
                 model_info_text = "Model not loaded"
 
         except Exception as e:
-            error_msg = f"Error processing file: {str(e)}"
-            logging.error(error_msg)
-            return (
-                normal_fig, 
-                filtered_fig, 
-                fft_fig,
-                error_msg,
-                True,
-                
-                False, 
-                error_msg, 
-                "danger",
-                model_prediction_text, 
-                analysis_summary, 
-                
-                model_prediction_text,
-                {}, 
-                no_update,
-                
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-                no_update,
-            )
+            logging.error(f"Error updating graphs: {e}", exc_info=True)
+            return [no_update]*25 + [{"display": "none"}]
 
         return (
             normal_fig,
@@ -376,34 +419,99 @@ def register_data_visualization_callbacks(app):
             number_display,
             rpm_display,
             big_result,
-            confidence_display,
+            confidence_value,
+            confidence_text,
             model_info_text,
+            {"display": "none"} # Hide loading overlay
         )
+
+    # Client-side callback for graph synchronization
+    app.clientside_callback(
+        """
+        function(relayoutData, fig) {
+            if (!relayoutData) return window.dash_clientside.no_update;
+            if (relayoutData['xaxis.range[0]'] || relayoutData['xaxis.autorange']) {
+                let newFig = JSON.parse(JSON.stringify(fig));
+                if (!newFig.layout) newFig.layout = {};
+                if (!newFig.layout.xaxis) newFig.layout.xaxis = {};
+                
+                if (relayoutData['xaxis.autorange']) {
+                     newFig.layout.xaxis.autorange = true;
+                     delete newFig.layout.xaxis.range;
+                } else {
+                    newFig.layout.xaxis.range = [relayoutData['xaxis.range[0]'], relayoutData['xaxis.range[1]']];
+                    newFig.layout.xaxis.autorange = false;
+                }
+                return newFig;
+            }
+            return window.dash_clientside.no_update;
+        }
+        """,
+        Output('filtered-graph', 'figure', allow_duplicate=True),
+        Input('normal-graph', 'relayoutData'),
+        State('filtered-graph', 'figure'),
+        prevent_initial_call=True
+    )
     
     @app.callback(
-        Output("download-pdf", "data"),
+        [
+            Output("download-pdf", "data"),
+            Output("download-alert", "is_open"),
+            Output("download-alert", "children"),
+            Output("download-alert", "color"),
+        ],
         Input("download-pdf-btn", "n_clicks"),
         State("selected-file-1", "data"),
         prevent_initial_call=True
     )
     def download_pdf(n_clicks, file_path):
         if n_clicks:
-            pdf_path = generate_pdf(file_path)
-            if pdf_path:
-                return dcc.send_file(pdf_path)
-        return no_update
+            logging.info(f"Download PDF button clicked. File path: {file_path}")
+            try:
+                pdf_path = generate_pdf(file_path)
+                logging.info(f"Generated PDF path: {pdf_path}")
+                if pdf_path:
+                    # Native save to Downloads folder
+                    downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
+                    filename = os.path.basename(pdf_path)
+                    dest_path = os.path.join(downloads_path, filename)
+                    shutil.copy2(pdf_path, dest_path)
+                    logging.info(f"File saved to: {dest_path}")
+                    return no_update, True, f"PDF saved to Downloads: {filename}", "success"
+                else:
+                    logging.error("generate_pdf returned None")
+                    return no_update, True, "Error generating PDF", "danger"
+            except Exception as e:
+                logging.error(f"Error in download_pdf: {e}", exc_info=True)
+                return no_update, True, f"Error: {str(e)}", "danger"
+        return no_update, no_update, no_update, no_update
         
     @app.callback(
-        Output("download-csv", "data"),
+        [
+            Output("download-csv", "data"),
+            Output("download-alert", "is_open", allow_duplicate=True),
+            Output("download-alert", "children", allow_duplicate=True),
+            Output("download-alert", "color", allow_duplicate=True),
+        ],
         Input("download-csv-btn", "n_clicks"),
         State("selected-file-1", "data"),
         prevent_initial_call=True
     )
     def download_csv(n_clicks, file_path):
         if n_clicks and file_path:
-            logging.info(f"Download CSV button clicked with filepath='{file_path}'")
-            return dcc.send_file(file_path)
-        return no_update
+            logging.info(f"Download CSV button clicked. File path: {file_path}")
+            try:
+                # Native save to Downloads folder
+                downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
+                filename = os.path.basename(file_path)
+                dest_path = os.path.join(downloads_path, filename)
+                shutil.copy2(file_path, dest_path)
+                logging.info(f"File saved to: {dest_path}")
+                return no_update, True, f"CSV saved to Downloads: {filename}", "success"
+            except Exception as e:
+                logging.error(f"Error in download_csv: {e}", exc_info=True)
+                return no_update, True, f"Error: {str(e)}", "danger"
+        return no_update, no_update, no_update, no_update
 
 
 def process_file(
@@ -415,116 +523,16 @@ def process_file(
     y_axis_range,
     ball_size_id,
     operator_id,
+    file_path_2=None,
 ):
-    import pandas as pd
-    from ..processing.data_loader import load_data
-    import plotly.graph_objs as go
-    import logging
-    import os
-
-    # graph layout settings
-    layout = go.Layout(
-        showlegend=False,
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
+    return analyze_torque_data(
+        file_path,
+        cutoff_freq,
+        rms_window_size,
+        hpf_rms_threshold,
+        spike_threshold,
+        y_axis_range,
+        ball_size_id,
+        operator_id,
+        file_path_2=file_path_2,
     )
-    
-    normal_fig = go.Figure(
-
-    )
-    filtered_fig = go.Figure()
-    fft_fig = go.Figure()
-    features_dict = {}
-    analysis_result_text = ""
-
-    # Security check
-    if not is_safe_path(Config.ALLOWED_DIRECTORY, file_path):
-        error_msg = "Invalid file path selected."
-        logging.warning(f"Attempt to access invalid file path: {file_path}")
-        error_fig = go.Figure()
-        error_fig.add_annotation(
-            text=error_msg,
-            xref="paper",
-            yref="paper",
-            showarrow=False,
-            font=dict(color="red", size=16),
-        )
-        return [error_fig, go.Figure(), go.Figure()], {}, error_msg
-
-    try:
-        data = load_data(file_path)
-        required_columns = ["X[mm]", "N[Ncm]"]
-        for col in required_columns:
-            if col not in data.columns:
-                raise ValueError(f"Missing column {col}")
-
-        x = data["X[mm]"]
-        y = data["N[Ncm]"]
-        
-        # Extract features
-        features_dict = extract_features(y.to_numpy(), fs=100.0, window_size=rms_window_size, threshold=7.5, kernel_size=1)
-        
-        # High-Pass Filtering
-        y_filtered = high_pass_filter(y.to_numpy(), cutoff=cutoff_freq)
-        filtered_series = pd.Series(y_filtered)
-        filtered_rms = filtered_series.rolling(window=rms_window_size).apply(calculate_rms, raw=True)
-        
-        moving_max = filtered_series.rolling(window=100, min_periods=1).max()
-        moving_min = filtered_series.rolling(window=100, min_periods=1).min()
-        moving_max_avg = moving_max.rolling(window=int(rms_window_size), min_periods=1).mean()
-        moving_min_avg = moving_min.rolling(window=int(rms_window_size), min_periods=1).mean()
-
-        # Create figures
-        normal_fig = create_normal_plot(x, y, y_axis_range)
-        filtered_fig = create_filtered_plot(x, y_filtered, filtered_rms, moving_max_avg, moving_min_avg, cutoff_freq, [-1,1])
-
-        
-        from ..processing.feature_extraction import calculate_fft
-        xf, amplitudes = calculate_fft(y.to_numpy(), fs=100.0)
-        fft_fig = create_fft_plot(xf, amplitudes)
-
-        # Analysis
-        analysis_list = []
-        from ..processing.anomaly_detection import detected_sudden_spike, analyse_hpf_rms
-        spike_detected = detected_sudden_spike(filtered_rms, spike_threshold)
-        if spike_detected:
-            analysis_list.append("Sudden spike detected in filtered RMS data. Re-measurement recommended.")
-        else:
-            analysis_list.append("No sudden spike detected in filtered RMS data.")
-        
-        hpf_rms_result = analyse_hpf_rms(filtered_rms, hpf_rms_threshold)
-        analysis_list.append(hpf_rms_result)
-        
-        if spike_detected or "over the threshold" in hpf_rms_result.lower():
-            overall_result = "FAILED"
-        else:
-            overall_result = "PASSED"
-        
-        analysis_result_text = f"Overall analysis result: {overall_result}\n" + "\n".join(analysis_list)
-
-        # Some extra meta
-        import datetime
-        operator_id = operator_id if operator_id else "Unknown Operator"
-        timestamp_of_analysis = pd.Timestamp.now().isoformat()
-        features_dict["Analysis Date"] = timestamp_of_analysis
-        features_dict["Operator"] = operator_id
-        features_dict["Ball Size"] = ball_size_id
-
-        # Extract info from filename, e.g. 20241024151643_1505_XXX0001_20rpm.csv
-        filename = os.path.basename(file_path)
-        parts = filename.split("_")
-        if len(parts) == 4:
-            timestamp_of_measurement = parts[0]
-            diameter_lead = parts[1]
-            number = parts[2]
-            rpm = parts[3].split(".")[0]
-            features_dict["Measurement date"] = timestamp_of_measurement
-            features_dict["Size"] = diameter_lead
-            features_dict["Number"] = number
-            features_dict["RPM"] = rpm
-
-    except Exception as e:
-        logging.error(f"Error processing file: {e}", exc_info=True)
-        return [go.Figure(), go.Figure(), go.Figure()], {}, f"Error processing file: {e}"
-
-    return ([normal_fig, filtered_fig, fft_fig], features_dict, analysis_result_text)

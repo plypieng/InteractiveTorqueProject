@@ -18,7 +18,10 @@ from imblearn.combine import SMOTETomek
 import joblib
 
 from ..database.session import SessionLocal
-from ..database.models import Measurement
+from ..database.session import SessionLocal
+from ..database.models import Measurement, AuditLog, ModelRegistry
+import json
+import uuid
 
 
 def register_db_review_callbacks(app):
@@ -109,11 +112,31 @@ def register_db_review_callbacks(app):
                 mid = row["id"]
                 measurement = session.query(Measurement).filter_by(id=mid).first()
                 if measurement:
+                    # Detect changes
+                    changes = []
+                    if measurement.label != row["label"]:
+                        changes.append(f"Label: {measurement.label} -> {row['label']}")
+                        measurement.label = row["label"]
+                    
+                    if measurement.notes != row["notes"]:
+                        measurement.notes = row["notes"]
+                        # We might not log simple note changes, or maybe we do. Let's log major ones.
+                    
+                    if changes:
+                        audit = AuditLog(
+                            measurement_id=measurement.id,
+                            changed_by="Admin/Reviewer", # We don't have operator ID here easily unless we store it in session
+                            previous_status=measurement.status,
+                            new_status=measurement.status,
+                            previous_label=None, # Already captured in reason
+                            new_label=None,
+                            change_reason=f"DB Review Table Edit: {'; '.join(changes)}"
+                        )
+                        session.add(audit)
+                        
                     measurement.file_path = row["file_path"]
-                    measurement.label = row["label"]
                     measurement.predicted_label = row["predicted_label"]
                     measurement.prediction_confidence = float(row["confidence"]) if row["confidence"] else None
-                    measurement.notes = row["notes"]
             try:
                 session.commit()
                 messages.append("Database updated successfully.")
@@ -168,20 +191,28 @@ def register_db_review_callbacks(app):
 def register_model_training_callbacks(app):
 
     @app.callback(
-        [
+        output=[
             Output("db-training-log", "children"),
-        Output("db-training-status-alert", "is_open"),
-        Output("db-training-status-alert", "children"),
-        Output("db-training-status-alert", "color"),
+            Output("db-training-status-alert", "is_open"),
+            Output("db-training-status-alert", "children"),
+            Output("db-training-status-alert", "color"),
         ],
-        [Input("start-db-training-btn", "n_clicks")],
-        [
+        inputs=[Input("start-db-training-btn", "n_clicks")],
+        state=[
             State("db-training-log", "children"),
             State("training-model-name", "value"),
         ],
-        prevent_initial_call=True
+        running=[
+            (Output("start-db-training-btn", "disabled"), True, False),
+            (Output("cancel-training-btn", "disabled"), False, True),
+            (Output("db-training-log", "style"), {"opacity": "0.5"}, {"opacity": "1.0"}),
+        ],
+        cancel=[Input("cancel-training-btn", "n_clicks")],
+        progress=[Output("db-training-log", "children")],
+        prevent_initial_call=True,
+        background=True
     )
-    def train_model_from_db_wide(n_clicks, current_log, model_name):
+    def train_model_from_db_wide(set_progress, n_clicks, current_log, model_name):
         """
         Trains a new model from DB using wide columns on Measurement.
         Saves to {model_name}.pkl if model_name is given, else "best_model.pkl".
@@ -190,7 +221,10 @@ def register_model_training_callbacks(app):
             raise PreventUpdate
 
         new_log = current_log or ""
+        update_log = lambda msg: f"{new_log}\n{msg}" if new_log else msg
+        
         new_log += "\n[INFO] Training started..."
+        set_progress(new_log)
 
         if not model_name:
             model_name = "best_model"
@@ -233,6 +267,7 @@ def register_model_training_callbacks(app):
             return (new_log, True, "ラベル付きデータがありません。", "warning")
 
         new_log += f"\n[INFO] Found {len(measurements)} labeled measurements."
+        set_progress(new_log)
 
         # 2) Convert to DataFrame from wide columns
         feature_cols = [
@@ -254,6 +289,8 @@ def register_model_training_callbacks(app):
         df = pd.DataFrame(rows)
         df.replace([np.inf, -np.inf], np.nan, inplace=True)
         df.dropna(inplace=True)
+
+        set_progress(new_log + "\n[INFO] Data cleaning complete. Starting Grid Search...")
 
         if df.empty:
             new_log += "\n[WARN] All data is NaN or inf after cleaning."
@@ -312,10 +349,37 @@ def register_model_training_callbacks(app):
 
         test_acc = best_model.score(X_test, y_test)
         new_log += f"\n[INFO] Test Accuracy: {test_acc:.3f}"
+        set_progress(new_log + "\n[INFO] Saving model...")
 
         # 6) Save pipeline to the project-root/trained_models folder
         model_path = os.path.join(models_dir, model_file)
         joblib.dump(best_model, model_path)
         new_log += f"\n[SAVED] {model_file} -> {model_path}\n"
+
+        # 7) Register in DB
+        try:
+            # Extract algorithm name and params
+            final_step = best_model.named_steps["clf"]
+            algo_type = final_step.__class__.__name__
+            best_params_json = json.dumps(rand_search.best_params_, default=str)
+            
+            # Generate a version string or use the filename if unique
+            version_id = model_name if model_name != "best_model" else f"best_model_{datetime.datetime.now().strftime('%Y%m%d%H%M%S')}"
+
+            with SessionLocal() as session:
+                new_model_record = ModelRegistry(
+                    version=version_id,
+                    algorithm_type=algo_type,
+                    hyperparameters=best_params_json,
+                    test_accuracy=float(test_acc),
+                    file_path=model_file,
+                    created_by="System_Training", # or pass user ID if available
+                    is_active=1
+                )
+                session.add(new_model_record)
+                session.commit()
+                new_log += f"\n[REGISTRY] Model registered in DB (ID: {new_model_record.id})"
+        except Exception as e:
+            new_log += f"\n[WARN] Failed to register model in DB: {e}"
 
         return (new_log, True, "モデル学習が成功しました！", "success")
